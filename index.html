@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ラムラム | Web制作ポートフォリオ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:      #f8f6f2;
+      --ink:     #1e1c18;
+      --mid:     #7a7060;
+      --faint:   #e8e4dc;
+      --green:   #2d6a4a;
+      --green-l: #e8f2ec;
+      --white:   #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(248,246,242,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--faint);
+    }
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: .9rem; letter-spacing: .18em;
+      color: var(--ink); text-decoration: none;
+    }
+    .nav-logo span { color: var(--green); }
+    .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--mid);
+      font-size: .75rem; letter-spacing: .16em;
+      font-family: 'Space Mono', monospace;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      font-family: 'Space Mono', monospace;
+      font-size: .72rem; letter-spacing: .14em;
+      color: var(--white); background: var(--green);
+      padding: .55rem 1.6rem; text-decoration: none;
+      transition: opacity .2s;
+    }
+    .nav-cta:hover { opacity: .85; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 100px 3rem 4rem;
+      max-width: 1100px; margin: 0 auto;
+      gap: 4rem;
+    }
+    .hero-left { flex: 1; }
+    .hero-tag {
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: .68rem; letter-spacing: .24em;
+      color: var(--green);
+      border: 1px solid var(--green);
+      padding: 4px 14px; margin-bottom: 2rem;
+    }
+    .hero-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1.6rem;
+      letter-spacing: .02em;
+    }
+    .hero-title em {
+      font-style: normal; color: var(--green);
+      border-bottom: 2px solid var(--green);
+      padding-bottom: 2px;
+    }
+    .hero-body {
+      color: var(--mid); max-width: 42ch;
+      font-size: .9rem; line-height: 2;
+      margin-bottom: 2.4rem;
+    }
+    .hero-actions { display: flex; gap: 1.2rem; align-items: center; }
+    .btn-main {
+      background: var(--green); color: var(--white);
+      padding: .85rem 2.2rem; text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: .75rem; letter-spacing: .14em;
+      transition: opacity .2s; display: inline-block;
+    }
+    .btn-main:hover { opacity: .85; }
+    .btn-note {
+      color: var(--mid); text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: .72rem; letter-spacing: .1em;
+      border-bottom: 1px solid var(--faint);
+      padding-bottom: 2px; transition: color .2s, border-color .2s;
+    }
+    .btn-note:hover { color: var(--ink); border-color: var(--ink); }
+
+    /* stats */
+    .hero-stats {
+      display: flex; gap: 2.4rem;
+      margin-top: 3.5rem; padding-top: 2rem;
+      border-top: 1px solid var(--faint);
+    }
+    .stat-num {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 2.2rem; font-weight: 700; color: var(--ink);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: 'Space Mono', monospace;
+      font-size: .62rem; letter-spacing: .16em; color: var(--mid);
+      margin-top: .4rem;
+    }
+
+    /* hero right: feature list */
+    .hero-right {
+      flex: 0 0 340px;
+      border-top: 1px solid var(--faint);
+    }
+    .feature-item {
+      padding: 1.6rem 0;
+      border-bottom: 1px solid var(--faint);
+    }
+    .feature-num {
+      font-family: 'Space Mono', monospace;
+      font-size: .65rem; letter-spacing: .2em; color: var(--green);
+      margin-bottom: .7rem;
+    }
+    .feature-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1rem; font-weight: 700;
+      margin-bottom: .5rem; color: var(--ink);
+    }
+    .feature-desc { font-size: .78rem; color: var(--mid); line-height: 1.8; }
+
+    /* ── WORKS ── */
+    .section {
+      padding: 6rem 3rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .section-header { margin-bottom: 3.5rem; }
+    .section-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: .65rem; letter-spacing: .28em; color: var(--green);
+      display: block; margin-bottom: .8rem;
+    }
+    .section-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700; line-height: 1.3;
+    }
+
+    .works-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 2px; background: var(--faint);
+    }
+    .work-card {
+      background: var(--white);
+      padding: 2.4rem;
+      transition: background .2s;
+      position: relative;
+    }
+    .work-card:hover { background: var(--green-l); }
+    .work-type {
+      font-family: 'Space Mono', monospace;
+      font-size: .65rem; letter-spacing: .2em; color: var(--green);
+      margin-bottom: 1rem;
+    }
+    .work-name {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.3rem; font-weight: 700;
+      margin-bottom: .8rem; color: var(--ink);
+    }
+    .work-desc { font-size: .82rem; color: var(--mid); line-height: 1.9; margin-bottom: 1.4rem; }
+    .work-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .work-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: .62rem; color: var(--mid);
+      border: 1px solid var(--faint);
+      padding: 3px 10px;
+    }
+
+    /* preview mock */
+    .work-preview {
+      height: 160px; margin-bottom: 1.4rem;
+      border-radius: 2px; overflow: hidden;
+      position: relative;
+    }
+
+    /* nail salon preview */
+    .preview-nail {
+      background: #f7f3ee;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .preview-nail-inner {
+      text-align: center;
+    }
+    .preview-nail-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.1rem; color: #8c7b72; letter-spacing: .2em;
+      font-style: italic;
+    }
+    .preview-nail-sub {
+      font-size: .6rem; color: #c9a99a; letter-spacing: .3em; margin-top: 4px;
+    }
+    .preview-nail-bar {
+      width: 40px; height: 1px; background: #c9a99a; margin: 8px auto;
+    }
+
+    /* cafe preview */
+    .preview-cafe {
+      background: #2b2520;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px;
+    }
+    .preview-cafe-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 1rem; color: #f5f1e8; letter-spacing: .24em;
+    }
+    .preview-cafe-sub {
+      font-size: .6rem; color: #7a6a60; letter-spacing: .2em;
+    }
+
+    /* ── SKILLS ── */
+    .skills-section {
+      background: var(--green);
+      padding: 6rem 3rem;
+    }
+    .skills-inner {
+      max-width: 1100px; margin: 0 auto;
+    }
+    .skills-section .section-tag { color: rgba(255,255,255,.75); }
+    .skills-section .section-title { color: var(--white); margin-bottom: 3rem; }
+
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .skill-item {
+      border: 1px solid rgba(255,255,255,.2);
+      padding: 1.8rem;
+    }
+    .skill-name {
+      font-family: 'Space Mono', monospace;
+      font-size: .78rem; letter-spacing: .14em; color: var(--white);
+      margin-bottom: .6rem;
+    }
+    .skill-bar-bg {
+      height: 3px; background: rgba(255,255,255,.25); margin-bottom: .6rem;
+    }
+    .skill-bar-fill {
+      height: 100%; background: var(--white);
+    }
+    .skill-note { font-size: .72rem; color: rgba(255,255,255,.8); line-height: 1.7; }
+
+    /* ── FLOW ── */
+    .flow-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .flow-item { position: relative; }
+    .flow-num {
+      font-family: 'Space Mono', monospace;
+      font-size: .65rem; letter-spacing: .2em; color: var(--green);
+      margin-bottom: .8rem;
+    }
+    .flow-line {
+      height: 1px; background: var(--faint);
+      margin-bottom: 1rem; position: relative;
+    }
+    .flow-line::before {
+      content: ''; position: absolute;
+      left: 0; top: -3px;
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--green);
+    }
+    .flow-name {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1rem; font-weight: 700; margin-bottom: .5rem;
+    }
+    .flow-desc { font-size: .78rem; color: var(--mid); line-height: 1.8; }
+
+    /* ── PRICE ── */
+    .price-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; background: var(--faint); margin-top: 3rem;
+    }
+    .price-card {
+      background: var(--white); padding: 2.4rem;
+    }
+    .price-card.featured { background: var(--green); }
+    .price-label {
+      font-family: 'Space Mono', monospace;
+      font-size: .65rem; letter-spacing: .22em; color: var(--mid);
+      margin-bottom: 1rem;
+    }
+    .price-card.featured .price-label { color: rgba(255,255,255,.7); }
+    .price-name {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.2rem; font-weight: 700; margin-bottom: .6rem;
+    }
+    .price-card.featured .price-name { color: var(--white); }
+    .price-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 1.6rem; font-weight: 700; color: var(--green);
+      margin-bottom: 1.2rem;
+    }
+    .price-card.featured .price-num { color: var(--white); }
+    .price-items { list-style: none; }
+    .price-items li {
+      font-size: .78rem; color: var(--mid);
+      padding: .4rem 0; border-bottom: 1px solid var(--faint);
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .price-items li::before { content: '✓'; color: var(--green); font-size: .7rem; }
+    .price-card.featured .price-items li { color: rgba(255,255,255,.85); border-color: rgba(255,255,255,.15); }
+    .price-card.featured .price-items li::before { color: rgba(255,255,255,.9); }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center;
+      padding: 7rem 3rem;
+      border-top: 1px solid var(--faint);
+    }
+    .cta-section .section-title { margin-bottom: 1rem; }
+    .cta-section p { color: var(--mid); margin-bottom: 2.4rem; font-size: .9rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--faint); color: var(--mid);
+      padding: 2.4rem 3rem;
+      border-top: 1px solid var(--faint);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    footer .nav-logo { color: var(--ink); }
+    .footer-note {
+      font-family: 'Space Mono', monospace;
+      font-size: .65rem; letter-spacing: .1em; line-height: 2;
+      text-align: right;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.4rem; }
+      .nav-links { display: none; }
+      .hero { flex-direction: column; padding: 90px 1.4rem 3rem; gap: 2rem; }
+      .hero-right { flex: none; width: 100%; }
+      .section { padding: 4rem 1.4rem; }
+      .works-grid { grid-template-columns: 1fr; }
+      .skills-section { padding: 4rem 1.4rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .flow-grid { grid-template-columns: 1fr 1fr; }
+      .price-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 4rem 1.4rem; }
+      footer { flex-direction: column; gap: 1rem; padding: 2rem 1.4rem; }
+      .footer-note { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">ラムラム<span>.portfolio</span></a>
+  <ul class="nav-links">
+    <li><a href="#works">制作実績</a></li>
+    <li><a href="#flow">制作の流れ</a></li>
+    <li><a href="#price">料金</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">無料相談</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-tag">WEB CREATOR × AI</span>
+    <h1 class="hero-title">
+      AIを武器に、<br>
+      <em>あなたのビジネス</em>を<br>
+      Web上で輝かせる。
+    </h1>
+    <p class="hero-body">
+      「ホームページを作ったことがない」という方も大歓迎。<br>
+      Claude Codeを活用したスピーディな制作で、<br>
+      はじめての一歩から丁寧にサポートします。
+    </p>
+    <div class="hero-actions">
+      <a class="btn-main" href="#contact">無料相談はこちら</a>
+      <a class="btn-note" href="https://note.com" target="_blank">note で制作記録を見る →</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">AI</div>
+        <div class="stat-label">POWERED</div>
+      </div>
+      <div>
+        <div class="stat-num">迅速</div>
+        <div class="stat-label">FAST DELIVERY</div>
+      </div>
+      <div>
+        <div class="stat-num">丁寧</div>
+        <div class="stat-label">CAREFUL SUPPORT</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="feature-item">
+      <div class="feature-num">01 · SPEED</div>
+      <div class="feature-title">AIで高速制作</div>
+      <div class="feature-desc">Claude Codeを活用し、高品質なサイトを短納期でお届けします。</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-num">02 · HEARING</div>
+      <div class="feature-title">丁寧なヒアリング</div>
+      <div class="feature-desc">ご要望を細かくお伺いし、認識のズレなく制作を進めます。</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-num">03 · RESPONSIVE</div>
+      <div class="feature-title">スマホ対応必須</div>
+      <div class="feature-desc">全案件でレスポンシブ対応。スマホでも美しく表示されます。</div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-num">04 · FLEXIBLE</div>
+      <div class="feature-title">修正にも柔軟対応</div>
+      <div class="feature-desc">「ここを変えたい」にスピーディに対応します。</div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="section" id="works">
+  <div class="section-header">
+    <span class="section-tag">WORKS</span>
+    <h2 class="section-title">制作実績</h2>
+  </div>
+
+  <div class="works-grid">
+    <div class="work-card">
+      <div class="work-preview preview-nail">
+        <div class="preview-nail-inner">
+          <div class="preview-nail-title">Lune Nail</div>
+          <div class="preview-nail-bar"></div>
+          <div class="preview-nail-sub">GINZA PRIVATE NAIL SALON</div>
+        </div>
+      </div>
+      <div class="work-type">LP · ネイルサロン</div>
+      <div class="work-name">Lune Nail — 銀座ネイルサロン</div>
+      <p class="work-desc">プライベートサロンのブランドイメージに合わせた、上品でシンプルなランディングページ。ジェルネイルメニューから予約導線まで一貫した世界観で設計。</p>
+      <div class="work-tags">
+        <span class="work-tag">HTML/CSS</span>
+        <span class="work-tag">レスポンシブ</span>
+        <span class="work-tag">LP</span>
+      </div>
+    </div>
+
+    <div class="work-card">
+      <div class="work-preview preview-cafe">
+        <div class="preview-cafe-title">CAFÉ SAMPLE</div>
+        <div class="preview-cafe-sub">TOKYO DRINK CAFÉ</div>
+      </div>
+      <div class="work-type">複数ページ · カフェ</div>
+      <div class="work-name">ドリンク専門カフェ 公式サイト</div>
+      <p class="work-desc">東京都内に新規オープンするドリンク専門カフェのWebサイト。TOP・メニュー・アクセス等5ページ構成。スマホでのドリンクビジュアルを重視した設計。</p>
+      <div class="work-tags">
+        <span class="work-tag">HTML/CSS</span>
+        <span class="work-tag">5ページ</span>
+        <span class="work-tag">スマホ重視</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<div class="skills-section" id="skills">
+  <div class="skills-inner">
+    <span class="section-tag">SKILLS</span>
+    <h2 class="section-title" style="color:#f8f6f2;font-family:'Shippori Mincho',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;line-height:1.3;">できること</h2>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <div class="skill-name">WEB DESIGN</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+        <div class="skill-note">ナチュラル・モダン・ミニマルなど、ご要望に合わせたデザインが可能です。</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">HTML / CSS</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
+        <div class="skill-note">レスポンシブ対応のコーディングができます。スマホ・PC両対応。</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">AI UTILIZATION</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+        <div class="skill-note">Claude Codeを活用し、高品質・短納期を両立します。</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">COMMUNICATION</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:95%"></div></div>
+        <div class="skill-note">レスポンスの速さと丁寧なヒアリングを強みとしています。</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">LP DESIGN</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+        <div class="skill-note">集客・予約・問い合わせに特化したランディングページ制作が得意です。</div>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">MULTI-PAGE SITE</div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:70%"></div></div>
+        <div class="skill-note">複数ページのWebサイト制作も対応可能です。要件に応じてご相談ください。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FLOW -->
+<section class="section" id="flow">
+  <div class="section-header">
+    <span class="section-tag">FLOW</span>
+    <h2 class="section-title">制作の流れ</h2>
+  </div>
+  <div class="flow-grid">
+    <div class="flow-item">
+      <div class="flow-num">STEP 01</div>
+      <div class="flow-line"></div>
+      <div class="flow-name">お問い合わせ</div>
+      <p class="flow-desc">まずはお気軽にご相談ください。ご要望・ご予算・納期などをお聞かせください。</p>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">STEP 02</div>
+      <div class="flow-line"></div>
+      <div class="flow-name">ヒアリング</div>
+      <p class="flow-desc">ZoomまたはDMにて詳細をお伺いします。参考サイトや方向性をすり合わせます。</p>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">STEP 03</div>
+      <div class="flow-line"></div>
+      <div class="flow-name">制作・確認</div>
+      <p class="flow-desc">制作を進めながら中間確認をはさみます。認識のズレを早めにキャッチします。</p>
+    </div>
+    <div class="flow-item">
+      <div class="flow-num">STEP 04</div>
+      <div class="flow-line"></div>
+      <div class="flow-name">納品</div>
+      <p class="flow-desc">最終確認後、ファイルをお渡しします。納品後の修正も対応可能です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="section" id="price">
+  <div class="section-header">
+    <span class="section-tag">PRICE</span>
+    <h2 class="section-title">料金プラン</h2>
+  </div>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-label">LIGHT</div>
+      <div class="price-name">ランディングページ</div>
+      <div class="price-num">¥30,000〜</div>
+      <ul class="price-items">
+        <li>1ページ構成</li>
+        <li>レスポンシブ対応</li>
+        <li>修正2回まで</li>
+        <li>納期2〜3週間</li>
+      </ul>
+    </div>
+    <div class="price-card featured">
+      <div class="price-label">STANDARD</div>
+      <div class="price-name">複数ページサイト</div>
+      <div class="price-num">¥60,000〜</div>
+      <ul class="price-items">
+        <li>3〜5ページ構成</li>
+        <li>レスポンシブ対応</li>
+        <li>修正3回まで</li>
+        <li>納期3〜4週間</li>
+      </ul>
+    </div>
+    <div class="price-card">
+      <div class="price-label">CUSTOM</div>
+      <div class="price-name">カスタム対応</div>
+      <div class="price-num">要相談</div>
+      <ul class="price-items">
+        <li>ページ数・仕様自由</li>
+        <li>予算に合わせて調整</li>
+        <li>修正回数要相談</li>
+        <li>納期要相談</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <span class="section-tag" style="display:block;margin-bottom:.8rem;">CONTACT</span>
+  <h2 class="section-title" style="font-family:'Shippori Mincho',serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;margin-bottom:1rem;">まずは無料でご相談ください</h2>
+  <p>「こんなサイトが作れる？」という質問だけでも大歓迎です。<br>お気軽にお声がけください。</p>
+  <a class="btn-main" href="mailto:drca.business@gmail.com">メールで問い合わせる</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a class="nav-logo" href="#">ラムラム<span style="color:var(--green)">.portfolio</span></a>
+  <div class="footer-note">
+    <p>AIを活用したWeb制作</p>
+    <p style="margin-top:.3rem;font-size:.6rem;opacity:.5;">© 2026 ラムラム. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
