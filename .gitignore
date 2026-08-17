@@ -1,0 +1,13 @@
+# このリポジトリは公開サイト（GitHub Pages）用。
+# 戦略メモ・下書き・制作中の素材は公開しない。
+
+summary.md
+note_draft_*.md
+gemini_*_instruction.md
+reels-video/
+*.png
+*.webp
+nail_salon_lp.html
+
+# 公開する画像は links/ 配下の最適化済みファイルのみ
+!links/avatar.jpg
