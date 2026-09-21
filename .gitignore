@@ -11,3 +11,6 @@ nail_salon_lp.html
 
 # 公開する画像は links/ 配下の最適化済みファイルのみ
 !links/avatar.jpg
+
+# 記事の下書きストックと変換ツール（公開しない）
+drafts/
