@@ -333,6 +333,17 @@
     .price-items li::before { content: '✓'; color: var(--green); font-size: .7rem; }
     .price-card.featured .price-items li { color: rgba(255,255,255,.85); border-color: rgba(255,255,255,.15); }
     .price-card.featured .price-items li::before { color: rgba(255,255,255,.9); }
+    .price-note {
+      margin-top: 3rem; padding: 1.2rem 1.5rem;
+      background: var(--white);
+      border: 1px solid var(--faint); border-left: 4px solid var(--green);
+      font-size: .85rem; line-height: 2; color: var(--ink);
+    }
+    .price-note strong {
+      font-family: 'Space Mono', monospace;
+      color: var(--green); font-weight: 700;
+    }
+    .price-note span { display: block; font-size: .75rem; color: var(--mid); margin-top: .4rem; }
 
     /* ── CTA ── */
     .cta-section {
@@ -570,11 +581,15 @@
     <span class="section-tag">PRICE</span>
     <h2 class="section-title">料金プラン</h2>
   </div>
+  <div class="price-note">
+    実績づくりのため、<strong>先着3社様に限り ¥30,000〜¥50,000</strong> でお受けしています。
+    <span>内容は下記プランと同じです。枠が埋まり次第、通常料金に戻します。</span>
+  </div>
   <div class="price-grid">
     <div class="price-card">
       <div class="price-label">LIGHT</div>
       <div class="price-name">ランディングページ</div>
-      <div class="price-num">¥30,000〜</div>
+      <div class="price-num">¥80,000〜</div>
       <ul class="price-items">
         <li>1ページ構成</li>
         <li>レスポンシブ対応</li>
@@ -585,7 +600,7 @@
     <div class="price-card featured">
       <div class="price-label">STANDARD</div>
       <div class="price-name">複数ページサイト</div>
-      <div class="price-num">¥60,000〜</div>
+      <div class="price-num">¥150,000〜</div>
       <ul class="price-items">
         <li>3〜5ページ構成</li>
         <li>レスポンシブ対応</li>
