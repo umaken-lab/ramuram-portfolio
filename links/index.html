@@ -2,317 +2,188 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ラムラム | HP制作・AI副業</title>
-<meta name="description" content="元銀行員 × AI活用でHP制作。数字の視点から、集客まで見据えたWebサイトをつくります。制作実績・料金・発信はこちらから。">
-
-<!-- OGP -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ラムラム｜京都のホームページ制作</title>
+<meta name="description" content="京都で、小さなお店と個人事業主のためのホームページを制作しています。制作事例・料金・ご相談はこちらから。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ラムラム | HP制作・AI副業">
-<meta property="og:description" content="元銀行員 × AI活用でHP制作。数字の視点から、集客まで見据えたWebサイトを。">
+<meta property="og:title" content="ラムラム｜京都のホームページ制作">
+<meta property="og:description" content="京都で、小さなお店と個人事業主のためのホームページを制作しています。">
 <meta property="og:image" content="https://umaken-lab.github.io/ramuram-portfolio/links/avatar.jpg">
 <meta property="og:url" content="https://umaken-lab.github.io/ramuram-portfolio/links/">
 <meta name="twitter:card" content="summary">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Space+Mono:wght@400;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#fbfaf7;
+  --surface:#fff;
+  --ink:#15130f;
+  --mid:#6e6a61;
+  --line:#e7e3db;
+  --green:#1c5c44;
+  --green-d:#154634;
+  --autumn:#c0562a;
+  --autumn-soft:#fdf1e9;
+}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:'Figtree','Noto Sans JP',system-ui,sans-serif;
+  line-height:1.9;letter-spacing:.02em;font-feature-settings:"palt";
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;display:flex;justify-content:center;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+}
+.wrap{position:relative;z-index:1;width:100%;max-width:480px;padding:2.8rem 1.4rem 2.6rem}
 
-  :root{
-    --bg:      #f8f6f2;
-    --ink:     #1e1c18;
-    --mid:     #7a7060;
-    --faint:   #e8e4dc;
-    --green:   #2d6a4a;
-    --green-l: #e8f2ec;
-    --white:   #ffffff;
-  }
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.r{opacity:0;animation:rise .7s cubic-bezier(.22,.9,.3,1) forwards}
+.d1{animation-delay:.04s}.d2{animation-delay:.12s}.d3{animation-delay:.2s}
+.d4{animation-delay:.3s}.d5{animation-delay:.4s}.d6{animation-delay:.5s}.d7{animation-delay:.6s}
+@media(prefers-reduced-motion:reduce){.r{animation:none;opacity:1}}
 
-  body{
-    background: var(--bg);
-    color: var(--ink);
-    font-family:'Noto Sans JP', sans-serif;
-    font-weight:300;
-    line-height:1.8;
-    -webkit-font-smoothing: antialiased;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-  }
+/* プロフィール */
+.profile{text-align:center;margin-bottom:1.6rem}
+.avatar{
+  width:104px;height:104px;margin:0 auto 1.2rem;border-radius:50%;
+  padding:3px;background:linear-gradient(145deg,var(--green),#86b39c 55%,var(--line));
+}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;border:3px solid var(--bg)}
+.name{font-size:1.5rem;font-weight:800;letter-spacing:-.01em;line-height:1.4}
+.role{font-size:.66rem;font-weight:600;letter-spacing:.22em;color:var(--green);margin-top:.35rem}
+.lede{font-size:.86rem;color:var(--mid);margin:.9rem auto 0;max-width:23em}
 
-  /* 背景のさりげない質感 */
-  body::before{
-    content:'';
-    position:fixed; inset:0; z-index:0; pointer-events:none;
-    background:
-      radial-gradient(circle at 15% 8%, rgba(45,106,74,.055) 0%, transparent 45%),
-      radial-gradient(circle at 85% 92%, rgba(45,106,74,.045) 0%, transparent 45%);
-  }
+.badge{
+  display:inline-flex;align-items:center;gap:.5rem;margin-top:1.2rem;
+  background:var(--autumn-soft);color:var(--autumn);
+  border:1px solid rgba(192,86,42,.22);
+  padding:.4rem .95rem;border-radius:999px;font-size:.73rem;font-weight:500;
+}
+.badge i{width:6px;height:6px;border-radius:50%;background:var(--autumn);font-style:normal;flex:none}
 
-  .wrap{
-    position:relative; z-index:1;
-    width:100%; max-width:480px;
-    padding: 3.2rem 1.5rem 3rem;
-  }
+/* 安心の帯 */
+.assure{
+  display:flex;margin:1.6rem 0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:.85rem 0;
+}
+.assure div{flex:1;text-align:center;font-size:.64rem;color:var(--mid);line-height:1.6}
+.assure div+div{border-left:1px solid var(--line)}
+.assure strong{display:block;font-size:.84rem;font-weight:700;color:var(--green)}
 
-  /* ── 登場アニメーション ── */
-  @keyframes rise{
-    from{ opacity:0; transform:translateY(14px); }
-    to  { opacity:1; transform:translateY(0); }
-  }
-  .r{ opacity:0; animation:rise .7s cubic-bezier(.22,.9,.3,1) forwards; }
-  .d1{animation-delay:.05s} .d2{animation-delay:.15s} .d3{animation-delay:.25s}
-  .d4{animation-delay:.36s} .d5{animation-delay:.46s} .d6{animation-delay:.56s}
-  .d7{animation-delay:.66s}
-  @media (prefers-reduced-motion: reduce){
-    .r{ animation:none; opacity:1; }
-  }
+/* カード */
+.links{display:flex;flex-direction:column;gap:10px}
+.card{
+  display:block;position:relative;text-decoration:none;color:inherit;
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:1.15rem 2.8rem 1.2rem 1.25rem;
+  transition:transform .22s cubic-bezier(.22,.9,.3,1),box-shadow .22s,border-color .22s;
+}
+.card:hover,.card:focus-visible{transform:translateY(-2px);border-color:#d4cec2;box-shadow:0 12px 26px -16px rgba(21,19,15,.4);outline:none}
+.card:active{transform:translateY(0)}
+.card.primary{background:var(--green);border-color:var(--green)}
+.card.primary .lab{color:rgba(255,255,255,.66)}
+.card.primary .ttl{color:#fff}
+.card.primary .dsc{color:rgba(255,255,255,.8)}
+.card.primary .ar{color:rgba(255,255,255,.9)}
+.card.primary:hover{background:var(--green-d);box-shadow:0 14px 30px -16px rgba(28,92,68,.7)}
+.lab{font-size:.57rem;font-weight:600;letter-spacing:.22em;color:var(--green);margin-bottom:.4rem}
+.ttl{font-size:.98rem;font-weight:700;line-height:1.55}
+.dsc{font-size:.74rem;color:var(--mid);line-height:1.8;margin-top:.25rem}
+.ar{position:absolute;right:1.1rem;top:50%;transform:translateY(-50%);font-size:.85rem;color:var(--mid);transition:transform .22s}
+.card:hover .ar{transform:translateY(-50%) translateX(4px)}
 
-  /* ── PROFILE ── */
-  .profile{ text-align:center; margin-bottom:2.8rem; }
+/* サンプル3つ */
+.samples{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sample{
+  display:block;text-decoration:none;color:inherit;text-align:center;
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:.95rem .5rem;transition:transform .22s,border-color .22s;
+}
+.sample:hover{transform:translateY(-2px);border-color:#d4cec2}
+.sample b{display:block;font-size:.78rem;font-weight:700}
+.sample span{display:block;font-size:.62rem;color:var(--mid);margin-top:.1rem}
 
-  .avatar-frame{
-    width:112px; height:112px;
-    margin:0 auto 1.4rem;
-    border-radius:50%;
-    padding:3px;
-    background: linear-gradient(140deg, var(--green) 0%, #7fae95 55%, var(--faint) 100%);
-  }
-  .avatar-frame img{
-    width:100%; height:100%;
-    border-radius:50%;
-    object-fit:cover;
-    display:block;
-    border:3px solid var(--bg);
-  }
+/* 区切り */
+.div{display:flex;align-items:center;gap:11px;margin:1.9rem 0 1.1rem}
+.div::before,.div::after{content:'';flex:1;height:1px;background:var(--line)}
+.div span{font-size:.56rem;font-weight:600;letter-spacing:.22em;color:var(--mid)}
 
-  .name{
-    font-family:'Shippori Mincho', serif;
-    font-weight:700;
-    font-size:1.6rem;
-    letter-spacing:.06em;
-    line-height:1.4;
-    margin-bottom:.5rem;
-  }
+/* SNS */
+.sns{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sns a{
+  display:block;text-align:center;text-decoration:none;color:inherit;
+  background:var(--surface);border:1px solid var(--line);border-radius:999px;
+  padding:.7rem .4rem;font-size:.78rem;font-weight:500;
+  transition:transform .22s,border-color .22s;
+}
+.sns a:hover{transform:translateY(-2px);border-color:var(--ink)}
 
-  .role{
-    font-family:'Space Mono', monospace;
-    font-size:.68rem;
-    letter-spacing:.16em;
-    color:var(--green);
-    margin-bottom:1rem;
-  }
-
-  .lede{
-    font-size:.85rem;
-    color:var(--mid);
-    line-height:1.95;
-    max-width:22em;
-    margin:0 auto;
-  }
-
-  /* ── TAGS ── */
-  .tags{
-    display:flex; flex-wrap:wrap; justify-content:center;
-    gap:7px; margin-top:1.5rem;
-  }
-  .tag{
-    font-family:'Space Mono', monospace;
-    font-size:.6rem; letter-spacing:.12em;
-    color:var(--mid);
-    border:1px solid var(--faint);
-    background:var(--white);
-    padding:5px 12px;
-    border-radius:100px;
-  }
-
-  /* ── ASSURANCE ── */
-  .assurance{
-    display:flex; align-items:center; justify-content:center;
-    gap:0; margin:0 0 1.6rem;
-    border-top:1px solid var(--faint);
-    border-bottom:1px solid var(--faint);
-    padding:.85rem 0;
-  }
-  .assurance div{
-    flex:1; text-align:center;
-    font-size:.66rem; color:var(--mid);
-    letter-spacing:.02em; line-height:1.5;
-  }
-  .assurance div + div{ border-left:1px solid var(--faint); }
-  .assurance strong{
-    display:block;
-    font-family:'Shippori Mincho', serif;
-    font-weight:700; font-size:.86rem;
-    color:var(--green); margin-bottom:1px;
-  }
-
-  /* ── LINKS ── */
-  .links{ display:flex; flex-direction:column; gap:12px; }
-
-  .card{
-    display:block;
-    position:relative;
-    text-decoration:none;
-    color:inherit;
-    background:var(--white);
-    border:1px solid var(--faint);
-    border-radius:3px;
-    padding:1.25rem 3rem 1.3rem 1.35rem;
-    transition: transform .22s cubic-bezier(.22,.9,.3,1),
-                box-shadow .22s ease,
-                border-color .22s ease;
-  }
-  .card:hover, .card:focus-visible{
-    transform:translateY(-2px);
-    border-color:#d6d0c4;
-    box-shadow:0 10px 26px -14px rgba(30,28,24,.28);
-    outline:none;
-  }
-  .card:active{ transform:translateY(0); }
-
-  /* 主役カード */
-  .card.primary{
-    background:var(--green);
-    border-color:var(--green);
-  }
-  .card.primary .card-label{ color:rgba(255,255,255,.68); }
-  .card.primary .card-title{ color:var(--white); }
-  .card.primary .card-desc { color:rgba(255,255,255,.82); }
-  .card.primary .arrow     { color:rgba(255,255,255,.9); }
-  .card.primary:hover{ box-shadow:0 12px 30px -14px rgba(45,106,74,.6); }
-
-  .card-label{
-    font-family:'Space Mono', monospace;
-    font-size:.58rem; letter-spacing:.22em;
-    color:var(--green);
-    margin-bottom:.45rem;
-  }
-  .card-title{
-    font-family:'Shippori Mincho', serif;
-    font-weight:700;
-    font-size:1.02rem;
-    line-height:1.5;
-    margin-bottom:.3rem;
-  }
-  .card-desc{
-    font-size:.74rem;
-    color:var(--mid);
-    line-height:1.75;
-  }
-  .arrow{
-    position:absolute; right:1.2rem; top:50%;
-    transform:translateY(-50%);
-    font-family:'Space Mono', monospace;
-    font-size:.85rem;
-    color:var(--mid);
-    transition:transform .22s cubic-bezier(.22,.9,.3,1);
-  }
-  .card:hover .arrow{ transform:translateY(-50%) translateX(4px); }
-
-  /* ── DIVIDER ── */
-  .divider{
-    display:flex; align-items:center; gap:12px;
-    margin:2.1rem 0 1.4rem;
-  }
-  .divider::before, .divider::after{
-    content:''; flex:1; height:1px; background:var(--faint);
-  }
-  .divider span{
-    font-family:'Space Mono', monospace;
-    font-size:.56rem; letter-spacing:.22em; color:var(--mid);
-  }
-
-  /* ── FOOTER ── */
-  footer{
-    margin-top:2.6rem;
-    text-align:center;
-    font-family:'Space Mono', monospace;
-    font-size:.56rem;
-    letter-spacing:.1em;
-    color:var(--mid);
-    opacity:.65;
-    line-height:2;
-  }
-
-  @media (max-width:380px){
-    .wrap{ padding:2.6rem 1.15rem 2.4rem; }
-    .name{ font-size:1.45rem; }
-    .card{ padding:1.15rem 2.7rem 1.2rem 1.15rem; }
-  }
+footer{margin-top:2.2rem;text-align:center;font-size:.6rem;letter-spacing:.08em;color:var(--mid);line-height:2.1}
+@media(max-width:380px){
+  .wrap{padding:2.4rem 1.1rem 2.2rem}
+  .name{font-size:1.38rem}
+  .card{padding:1.05rem 2.5rem 1.1rem 1.1rem}
+  .samples{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-
 <div class="wrap">
 
-  <!-- PROFILE -->
   <section class="profile">
-    <div class="avatar-frame r d1">
-      <img src="avatar.jpg" alt="ラムラムのプロフィール画像" width="112" height="112">
-    </div>
-
+    <div class="avatar r d1"><img src="avatar.jpg" alt="ラムラム" width="104" height="104"></div>
     <h1 class="name r d2">ラムラム</h1>
-    <p class="role r d2">EX-BANKER &times; AI &times; WEB</p>
-
-    <p class="lede r d3">
-      元銀行員 × AI活用でHP制作。<br>
-      「作って終わり」ではなく、<br>
-      数字の視点から集客まで見据えたサイトを。
-    </p>
-
-    <div class="tags r d3">
-      <span class="tag">HP制作</span>
-      <span class="tag">LP制作</span>
-      <span class="tag">AI活用</span>
-      <span class="tag">スマホ対応</span>
-    </div>
+    <p class="role r d2">KYOTO — WEB DESIGN &amp; BUILD</p>
+    <p class="lede r d3">京都で、小さなお店と個人事業主のための<br>ホームページを作っています。</p>
+    <span class="badge r d3"><i></i>オータムキャンペーン実施中 ／ 先着3社様</span>
   </section>
 
-  <!-- ASSURANCE -->
-  <div class="assurance r d4">
-    <div><strong>無料</strong>まずは相談から</div>
-    <div><strong>オンライン</strong>全国どこでも</div>
+  <div class="assure r d4">
+    <div><strong>無料</strong>まず相談から</div>
+    <div><strong>京都</strong>直接伺えます</div>
     <div><strong>納品後</strong>修正も対応</div>
   </div>
 
-  <!-- LINKS -->
   <nav class="links">
-
     <a class="card primary r d4" href="https://umaken-lab.github.io/ramuram-portfolio/">
-      <div class="card-label">WORKS &amp; PRICE</div>
-      <div class="card-title">制作実績と料金を見る</div>
-      <div class="card-desc">LPは¥30,000〜。制作の流れ・料金プランまで公開しています。</div>
-      <span class="arrow">→</span>
+      <div class="lab">WORKS &amp; PRICE</div>
+      <div class="ttl">制作事例と料金を見る</div>
+      <div class="dsc">1ページ ¥80,000〜。いまは先着3社様に限り ¥30,000〜でお受けしています。</div>
+      <span class="ar">→</span>
     </a>
 
-    <a class="card r d5" href="mailto:drca.business@gmail.com?subject=%E3%82%B5%E3%82%A4%E3%83%88%E5%88%B6%E4%BD%9C%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87&amp;body=%0A%0A%E2%96%A0%E3%81%94%E7%9B%B8%E8%AB%87%E5%86%85%E5%AE%B9%0A%0A%0A%E2%96%A0%E3%81%94%E4%BA%88%E7%AE%97%EF%BC%88%E6%9C%AA%E5%AE%9A%E3%81%A7%E3%82%82OK%EF%BC%89%0A%0A%0A%E2%96%A0%E5%B8%8C%E6%9C%9B%E7%B4%8D%E6%9C%9F%EF%BC%88%E6%9C%AA%E5%AE%9A%E3%81%A7%E3%82%82OK%EF%BC%89%0A%0A">
-      <div class="card-label">CONTACT</div>
-      <div class="card-title">無料で相談する</div>
-      <div class="card-desc">「こんなサイト作れる？」という質問だけでも歓迎です。入力欄はそのまま送信いただいてかまいません。</div>
-      <span class="arrow">→</span>
+    <a class="card r d5" href="mailto:drca.business@gmail.com?subject=%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E5%88%B6%E4%BD%9C%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87&amp;body=%E3%81%8A%E5%BA%97%E3%81%AE%E5%90%8D%E5%89%8D%EF%BC%9A%0D%0A%E6%A5%AD%E7%A8%AE%EF%BC%9A%0D%0A%E3%81%94%E7%9B%B8%E8%AB%87%E5%86%85%E5%AE%B9%EF%BC%9A%0D%0A%0D%0A">
+      <div class="lab">CONTACT</div>
+      <div class="ttl">無料で相談する</div>
+      <div class="dsc">「こんなサイト作れる？」という質問だけでも歓迎です。平日21時まで・土日も返信します。</div>
+      <span class="ar">→</span>
     </a>
-
-    <div class="divider r d6"><span>ALSO</span></div>
-
-    <a class="card r d6" href="https://note.com/cc_fukugyo" target="_blank" rel="noopener">
-      <div class="card-label">NOTE</div>
-      <div class="card-title">発信を読む</div>
-      <div class="card-desc">AIを使って副業に挑戦する日々の記録。うまくいったことも、つまずいたことも正直に書いています。</div>
-      <span class="arrow">↗</span>
-    </a>
-
   </nav>
 
+  <div class="div r d5"><span>SAMPLES</span></div>
+  <div class="samples r d6">
+    <a class="sample" href="https://umaken-lab.github.io/ramuram-portfolio/works/komichi-cafe/"><b>喫茶こみち</b><span>カフェ</span></a>
+    <a class="sample" href="https://umaken-lab.github.io/ramuram-portfolio/works/lino-hair/"><b>LINO</b><span>美容室</span></a>
+    <a class="sample" href="https://umaken-lab.github.io/ramuram-portfolio/works/lune-nail/"><b>Lune Nail</b><span>ネイル</span></a>
+  </div>
+
+  <div class="div r d6"><span>ALSO</span></div>
+  <div class="sns r d7">
+    <a href="https://note.com/cc_fukugyo" target="_blank" rel="noopener">note</a>
+    <a href="https://x.com/ramuram_web" target="_blank" rel="noopener">X</a>
+    <a href="https://www.instagram.com/ramuram_web/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+
   <footer class="r d7">
-    <p>週5時間から、AI副業に挑戦中</p>
+    <p>元銀行員／京都・オンライン全国対応</p>
     <p>&copy; 2026 ラムラム</p>
   </footer>
 
 </div>
-
 </body>
 </html>
