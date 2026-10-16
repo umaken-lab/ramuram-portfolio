@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>喫茶こみち｜京都・一乗寺の自家焙煎コーヒーと朝のモーニング</title>
+<meta name="description" content="京都・一乗寺の小さな喫茶店。朝7時から、自家焙煎のコーヒーとモーニングをご用意しています。営業時間・メニュー・アクセスのご案内。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#f6f0e6;
+  --paper:#fffdf9;
+  --bean:#2e211a;
+  --roast:#6b4b35;
+  --clay:#b4704a;
+  --mid:#857668;
+  --line:#e3d8c8;
+  --gut:clamp(1.25rem,5vw,3rem);
+  --pad:clamp(4rem,9vw,7.5rem);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--cream);color:var(--bean);
+  font-family:'Zen Kaku Gothic New',sans-serif;
+  font-size:16px;line-height:1.95;letter-spacing:.03em;
+  font-feature-settings:"palt";padding-bottom:76px;overflow-x:hidden;
+}
+@media(max-width:600px){body{padding-bottom:96px}}
+a{color:inherit}
+.wrap{max-width:1020px;margin:0 auto;padding-inline:var(--gut)}
+.en{font-family:'Cormorant Garamond',serif;letter-spacing:.16em}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:80;
+  display:flex;align-items:center;gap:1rem;
+  padding:.9rem var(--gut);
+  background:rgba(246,240,230,.9);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.logo{font-size:1.15rem;font-weight:700;text-decoration:none;letter-spacing:.14em}
+.logo em{font-style:normal;font-size:.62rem;letter-spacing:.24em;color:var(--mid);display:block;font-weight:400}
+nav ul{display:flex;gap:1.7rem;list-style:none;margin-left:auto}
+nav ul a{font-size:.8rem;text-decoration:none;color:var(--roast)}
+.tel{
+  background:var(--bean);color:var(--cream);text-decoration:none;
+  padding:.55rem 1.2rem;border-radius:999px;font-size:.8rem;white-space:nowrap;
+}
+@media(max-width:780px){nav ul{display:none}.tel{margin-left:auto}}
+
+/* HERO */
+.hero{padding:clamp(6.5rem,13vw,9rem) 0 var(--pad);position:relative;overflow:hidden}
+.hero::after{
+  content:'';position:absolute;right:-14%;top:12%;
+  width:min(46vw,460px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%,#e8d5bf,#cbae8e 62%,#b4916d);
+  opacity:.5;filter:blur(2px);
+}
+.hero-in{position:relative;z-index:2;max-width:min(640px,100%)}
+.hero .en.sup{font-size:.74rem;color:var(--clay);display:block}
+.hero h1{
+  font-size:clamp(2.1rem,6.6vw,3.6rem);font-weight:700;
+  line-height:1.52;letter-spacing:.01em;margin:1.1rem 0 0;
+}
+.hero p{color:var(--roast);margin-top:1.5rem;font-size:.97rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.3rem}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:.95rem 2rem;border-radius:999px;text-decoration:none;
+  font-size:.9rem;font-weight:500;transition:transform .2s,background .2s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-main{background:var(--bean);color:var(--cream)}
+.btn-sub{border:1px solid var(--roast);color:var(--roast)}
+
+/* 開店時間の帯 */
+.strip{
+  background:var(--bean);color:var(--cream);
+  padding:1.5rem var(--gut);
+}
+.strip-in{
+  max-width:1020px;margin:0 auto;display:flex;flex-wrap:wrap;gap:1.4rem 2.6rem;align-items:baseline;
+}
+.strip b{font-size:1.05rem;font-weight:500}
+.strip span{font-size:.84rem;color:#cbbda9}
+
+/* SECTION */
+.sec{padding:var(--pad) 0}
+.sec-head .en{font-size:.72rem;color:var(--clay);display:block}
+.sec-head h2{font-size:clamp(1.5rem,3.8vw,2.1rem);font-weight:700;line-height:1.6;margin-top:.6rem}
+.sec-head p{color:var(--mid);font-size:.92rem;margin-top:.9rem;max-width:34em}
+
+/* こだわり */
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.8rem}
+@media(max-width:800px){.feat{grid-template-columns:1fr}}
+.feat div{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:1.8rem 1.6rem}
+.feat b{display:block;font-size:1rem;font-weight:700}
+.feat p{color:var(--mid);font-size:.86rem;margin-top:.6rem}
+.feat .n{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--clay);display:block;margin-bottom:.6rem}
+
+/* MENU */
+.menu-wrap{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:0 3.4rem;margin-top:2.6rem}
+@media(max-width:760px){.menu{grid-template-columns:1fr}}
+.menu h3{
+  grid-column:1/-1;font-size:.76rem;letter-spacing:.2em;color:var(--clay);
+  border-bottom:1px solid var(--line);padding-bottom:.7rem;margin-top:1.8rem;
+}
+.menu h3:first-child{margin-top:0}
+.row{display:flex;align-items:baseline;gap:.7rem;padding:.75rem 0;border-bottom:1px dotted var(--line)}
+.row i{font-style:normal;flex:1;font-size:.93rem}
+.row u{text-decoration:none;color:var(--mid);font-size:.78rem;display:block}
+.row b{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:500;white-space:nowrap}
+
+/* 店舗情報 */
+.info{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3rem);margin-top:2.6rem}
+@media(max-width:800px){.info{grid-template-columns:1fr}}
+.info dl{border-top:1px solid var(--line)}
+.info dt{font-size:.72rem;letter-spacing:.14em;color:var(--clay);padding-top:1.1rem}
+.info dd{font-size:.95rem;padding-bottom:1.1rem;border-bottom:1px solid var(--line)}
+.info dd small{display:block;color:var(--mid);font-size:.8rem}
+.info a{color:var(--bean)}
+.hours{width:100%;border-collapse:collapse;font-size:.88rem}
+.hours th,.hours td{border:1px solid var(--line);padding:.6rem .4rem;text-align:center;background:var(--paper)}
+.hours th{background:var(--cream);font-weight:500;font-size:.78rem}
+.hours .off{color:var(--clay)}
+.map{
+  margin-top:1.2rem;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  aspect-ratio:16/10;background:
+    repeating-linear-gradient(90deg,#efe7da 0 1px,transparent 1px 46px),
+    repeating-linear-gradient(0deg,#efe7da 0 1px,transparent 1px 46px),
+    var(--paper);
+  display:grid;place-items:center;color:var(--mid);font-size:.8rem;text-align:center;padding:1rem;
+}
+
+/* CTA */
+.cta{background:var(--bean);color:var(--cream);padding:var(--pad) 0;text-align:center}
+.cta h2{font-size:clamp(1.4rem,3.6vw,2rem);font-weight:700;line-height:1.6}
+.cta p{color:#cbbda9;font-size:.9rem;margin-top:1rem}
+.cta .btn-main{background:var(--cream);color:var(--bean);margin-top:2rem}
+footer{padding:2.4rem 0;font-size:.76rem;color:var(--mid);text-align:center}
+
+/* サンプル表示バー */
+.demo-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:999;
+  background:#15130f;color:#fdfcfb;display:flex;align-items:center;justify-content:center;
+  gap:1rem;flex-wrap:wrap;padding:.7rem 1.2rem;font-size:.76rem;line-height:1.7;
+}
+.demo-bar b{font-weight:500}
+.demo-bar a{color:#15130f;background:#fdfcfb;padding:.35rem 1rem;border-radius:999px;text-decoration:none;font-size:.72rem;white-space:nowrap}
+@media(max-width:600px){.demo-bar{font-size:.7rem;text-align:center}}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#top">喫茶こみち<em class="en">KOMICHI COFFEE</em></a>
+  <ul>
+    <li><a href="#about">お店について</a></li>
+    <li><a href="#menu">メニュー</a></li>
+    <li><a href="#info">営業時間・アクセス</a></li>
+  </ul>
+  <a class="tel" href="tel:0750000000">075-000-0000</a>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-in">
+    <span class="en sup">KYOTO ICHIJOJI — SINCE 1986</span>
+    <h1>朝七時から、<br>一杯ぶんの<br>静かな時間を。</h1>
+    <p>一乗寺の路地にある、席数22の小さな喫茶店です。自家焙煎の豆をサイフォンで淹れています。モーニングは閉店までご注文いただけます。</p>
+    <div class="hero-cta">
+      <a class="btn btn-main" href="#menu">メニューを見る</a>
+      <a class="btn btn-sub" href="#info">営業時間・行き方</a>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="strip-in">
+    <b>本日 7:00 − 13:30 営業</b>
+    <span>定休日：木曜</span>
+    <span>モーニングは終日ご注文いただけます</span>
+  </div>
+</div>
+
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="en">About</span>
+      <h2>変わらないことを、<br>続けています。</h2>
+      <p>1986年の開店から、豆の仕入れ先も焙煎の仕方も変えていません。常連の方が「いつもの」で通じる店であることを、いちばん大事にしています。</p>
+    </div>
+    <div class="feat">
+      <div class="rv"><span class="n">01</span><b>自家焙煎の豆</b><p>毎週火曜に店内の焙煎機で煎ります。浅煎りと深煎りの2種類を常時ご用意しています。豆の販売も承ります。</p></div>
+      <div class="rv"><span class="n">02</span><b>サイフォン抽出</b><p>注文を受けてから一杯ずつ淹れます。お待たせしますが、そのぶん香りが立ちます。</p></div>
+      <div class="rv"><span class="n">03</span><b>朝6時45分から</b><p>通勤前の方のために、開店前の15分からお入りいただけます。新聞と雑誌を置いています。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec menu-wrap" id="menu">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="en">Menu</span>
+      <h2>おしながき</h2>
+      <p>価格はすべて税込です。モーニングは閉店までご注文いただけます。</p>
+    </div>
+    <div class="menu rv">
+      <h3>MORNING</h3>
+      <div class="row"><i>こみちモーニング<u>トースト・ゆで卵・サラダ・ドリンク</u></i><b>¥680</b></div>
+      <div class="row"><i>あんバタートースト<u>丹波大納言の自家製あん</u></i><b>¥520</b></div>
+      <div class="row"><i>玉子サンド<u>だし巻き・厚切りパン</u></i><b>¥640</b></div>
+      <div class="row"><i>ヨーグルトボウル<u>季節の果物と自家製グラノーラ</u></i><b>¥580</b></div>
+
+      <h3>COFFEE</h3>
+      <div class="row"><i>こみちブレンド<u>深煎り・サイフォン</u></i><b>¥520</b></div>
+      <div class="row"><i>本日のストレート<u>日替わり・浅煎り</u></i><b>¥580</b></div>
+      <div class="row"><i>アイスコーヒー<u>水出し・12時間</u></i><b>¥540</b></div>
+      <div class="row"><i>カフェオレ</i><b>¥580</b></div>
+
+      <h3>OTHERS</h3>
+      <div class="row"><i>紅茶（ポットサービス）</i><b>¥560</b></div>
+      <div class="row"><i>自家製レモンスカッシュ</i><b>¥580</b></div>
+      <div class="row"><i>チーズケーキ<u>土日限定・数量限定</u></i><b>¥480</b></div>
+      <div class="row"><i>コーヒー豆 100g<u>浅煎り／深煎り</u></i><b>¥850</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="info">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="en">Information</span>
+      <h2>営業時間・アクセス</h2>
+    </div>
+    <div class="info">
+      <div class="rv">
+        <table class="hours">
+          <tr><th>　</th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th><th>日</th></tr>
+          <tr><td>7:00−13:30</td><td>○</td><td>○</td><td>○</td><td class="off">休</td><td>○</td><td>○</td><td>○</td></tr>
+        </table>
+        <div class="map">叡山電鉄 一乗寺駅から徒歩4分<br>（地図を表示する位置です）</div>
+      </div>
+      <div class="rv">
+        <dl>
+          <dt>ADDRESS</dt>
+          <dd>京都市左京区一乗寺○○町00-0<small>叡山電鉄 一乗寺駅から徒歩4分</small></dd>
+          <dt>TEL</dt>
+          <dd><a href="tel:0750000000">075-000-0000</a><small>営業時間内のみ受付</small></dd>
+          <dt>OPEN</dt>
+          <dd>7:00 − 13:30<small>木曜定休（祝日の場合は営業）</small></dd>
+          <dt>SEATS</dt>
+          <dd>22席<small>カウンター6席／テーブル16席</small></dd>
+          <dt>NOTE</dt>
+          <dd>全席禁煙・駐車場なし<small>近隣にコインパーキングがあります</small></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>予約はいりません。<br>ふらりとお越しください。</h2>
+    <p>5名以上でお越しの場合のみ、前日までにお電話ください。</p>
+    <a class="btn btn-main" href="tel:0750000000">075-000-0000 に電話する</a>
+  </div>
+</section>
+
+<footer>© 2026 喫茶こみち</footer>
+
+<div class="demo-bar">
+  <span><b>これはサンプルサイトです。</b>架空の店舗を想定して制作しました。実在の店舗ではありません。</span>
+  <a href="../../">制作者のページへ</a>
+</div>
+
+<script>
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%3*70)+'ms';io.observe(el)});
+</script>
+</body>
+</html>

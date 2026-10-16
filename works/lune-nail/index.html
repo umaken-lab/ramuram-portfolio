@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lune Nail — 銀座のプライベートネイルサロン</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:    #1a1612;
+      --dust:   #e8e0d5;
+      --blush:  #c9a99a;
+      --stone:  #8c7b72;
+      --cream:  #f7f3ee;
+      --white:  #fdfcfb;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--ink);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 3rem;
+      background: rgba(253,252,251,0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--dust);
+    }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      letter-spacing: .2em;
+      font-style: italic;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--stone);
+      font-size: .78rem; letter-spacing: .18em; text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--ink); color: var(--white);
+      padding: .55rem 1.6rem; border-radius: 0;
+      font-size: .78rem; letter-spacing: .18em; text-transform: uppercase;
+      text-decoration: none; transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--blush); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 72px;
+    }
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 6rem 4rem 6rem 5rem;
+    }
+    .hero-eyebrow {
+      font-size: .72rem; letter-spacing: .32em; text-transform: uppercase;
+      color: var(--blush); margin-bottom: 1.6rem;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 4.8rem);
+      font-weight: 300;
+      line-height: 1.12;
+      margin-bottom: 2rem;
+    }
+    .hero-title em {
+      font-style: italic; color: var(--blush);
+    }
+    .hero-body {
+      color: var(--stone); max-width: 38ch;
+      margin-bottom: 3rem; line-height: 2;
+    }
+    .hero-actions { display: flex; gap: 1rem; align-items: center; }
+    .btn-primary {
+      background: var(--ink); color: var(--white);
+      padding: .9rem 2.4rem; text-decoration: none;
+      font-size: .8rem; letter-spacing: .18em; text-transform: uppercase;
+      transition: background .2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--blush); }
+    .btn-ghost {
+      color: var(--stone); text-decoration: none;
+      font-size: .8rem; letter-spacing: .12em;
+      border-bottom: 1px solid var(--dust);
+      padding-bottom: 2px; transition: color .2s, border-color .2s;
+    }
+    .btn-ghost:hover { color: var(--ink); border-color: var(--ink); }
+
+    /* signature element: big number strip */
+    .hero-stat-strip {
+      display: flex; gap: 3rem; margin-top: 4rem;
+      padding-top: 2.4rem; border-top: 1px solid var(--dust);
+    }
+    .stat-item {}
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem; font-weight: 300; line-height: 1;
+      color: var(--ink);
+    }
+    .stat-label {
+      font-size: .7rem; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--stone); margin-top: .3rem;
+    }
+
+    .hero-right {
+      position: relative; overflow: hidden;
+      background: var(--dust);
+    }
+    .hero-img-grid {
+      display: grid; grid-template-rows: 1fr 1fr;
+      height: 100%; gap: 0;
+    }
+    .hero-img-block {
+      background: var(--dust);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; position: relative;
+    }
+    /* SVG illustration placeholders */
+    .nail-art-svg {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .hero-img-block:nth-child(2) {
+      background: #d6c5bc;
+    }
+    .img-label {
+      position: absolute; bottom: 1.2rem; left: 1.4rem;
+      font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--white); opacity: .8;
+    }
+
+    /* ── SERVICES ── */
+    .section { padding: 7rem 5rem; }
+    .section-eyebrow {
+      font-size: .72rem; letter-spacing: .32em; text-transform: uppercase;
+      color: var(--blush); margin-bottom: 1rem; display: block;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300; line-height: 1.2;
+      margin-bottom: 4rem;
+    }
+
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; background: var(--dust);
+    }
+    .service-card {
+      background: var(--white);
+      padding: 3rem 2.4rem;
+      transition: background .25s;
+    }
+    .service-card:hover { background: var(--cream); }
+    .service-icon {
+      width: 40px; height: 40px;
+      margin-bottom: 1.6rem;
+      color: var(--blush);
+    }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 300;
+      margin-bottom: .8rem;
+    }
+    .service-desc {
+      color: var(--stone); font-size: .85rem;
+      line-height: 1.9; margin-bottom: 1.6rem;
+    }
+    .service-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; color: var(--blush);
+    }
+    .service-price span {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: .72rem; color: var(--stone);
+      margin-left: .3rem;
+    }
+
+    /* ── PROCESS ── */
+    .process-section {
+      background: var(--ink); color: var(--white);
+      padding: 7rem 5rem;
+    }
+    .process-section .section-eyebrow { color: var(--blush); }
+    .process-section .section-title { color: var(--white); margin-bottom: 4rem; }
+
+    .process-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+    }
+    .step {}
+    .step-line {
+      height: 1px; background: var(--stone);
+      margin-bottom: 1.8rem; position: relative;
+    }
+    .step-line::before {
+      content: ''; position: absolute; left: 0; top: -3px;
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--blush);
+    }
+    .step-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; margin-bottom: .6rem;
+      color: var(--white);
+    }
+    .step-desc { font-size: .82rem; color: var(--stone); line-height: 1.9; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { padding: 7rem 5rem; background: var(--cream); }
+    .testimonials .section-title { margin-bottom: 3.5rem; }
+
+    .testi-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .testi-card {
+      background: var(--white);
+      padding: 2.4rem;
+      border-left: 2px solid var(--blush);
+    }
+    .testi-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-style: italic;
+      line-height: 1.8; color: var(--ink);
+      margin-bottom: 1.4rem;
+    }
+    .testi-author { font-size: .75rem; letter-spacing: .14em; color: var(--stone); }
+
+    /* ── CTA ── */
+    .cta-section {
+      padding: 8rem 5rem;
+      text-align: center;
+      background: var(--white);
+      border-top: 1px solid var(--dust);
+    }
+    .cta-section .section-title { margin-bottom: 1.2rem; }
+    .cta-section p { color: var(--stone); margin-bottom: 2.8rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem 5rem;
+      background: var(--ink); color: var(--stone);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    footer .logo { color: var(--white); }
+    .footer-info { font-size: .76rem; letter-spacing: .08em; line-height: 2; text-align: right; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up { animation: fadeUp .8s ease both; }
+    .delay-1 { animation-delay: .15s; }
+    .delay-2 { animation-delay: .3s; }
+    .delay-3 { animation-delay: .45s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 6rem 2rem 3rem; }
+      .hero-right { height: 50vw; }
+      .section { padding: 5rem 2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-section { padding: 5rem 2rem; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .testimonials { padding: 5rem 2rem; }
+      .cta-section { padding: 5rem 2rem; }
+      footer { flex-direction: column; gap: 1rem; padding: 2rem; text-align: center; }
+      .footer-info { text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { animation: none; }
+    }
+    /* ── サンプル表示バー ── */
+    body { padding-bottom: 76px; }
+    @media (max-width: 600px) { body { padding-bottom: 96px; } }
+    .demo-bar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 999;
+      background: #15130f; color: #fdfcfb;
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; flex-wrap: wrap;
+      padding: .7rem 1.2rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: .76rem; letter-spacing: .04em; line-height: 1.7;
+    }
+    .demo-bar b { font-weight: 500; }
+    .demo-bar a {
+      color: #15130f; background: #fdfcfb;
+      padding: .35rem 1rem; border-radius: 999px;
+      text-decoration: none; font-size: .72rem; white-space: nowrap;
+    }
+    @media (max-width: 600px) { .demo-bar { font-size: .7rem; text-align: center; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">Lune Nail</a>
+  <ul class="nav-links">
+    <li><a href="#services">メニュー</a></li>
+    <li><a href="#process">ご来店の流れ</a></li>
+    <li><a href="#voice">お客様の声</a></li>
+  </ul>
+  <a class="nav-cta" href="#reserve">ご予約</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow fade-up">Ginza Private Nail Salon</p>
+    <h1 class="hero-title fade-up delay-1">
+      指先に宿る、<br><em>静かな美しさ。</em>
+    </h1>
+    <p class="hero-body fade-up delay-2">
+      一対一の完全個室で、あなただけのネイルを。<br>
+      丁寧なカウンセリングと厳選されたジェルで、<br>
+      日常を彩る特別な時間をご提供します。
+    </p>
+    <div class="hero-actions fade-up delay-3">
+      <a class="btn-primary" href="#reserve">ご予約はこちら</a>
+      <a class="btn-ghost" href="#services">メニューを見る</a>
+    </div>
+    <div class="hero-stat-strip fade-up delay-3">
+      <div class="stat-item">
+        <div class="stat-num">800<small style="font-size:1.4rem">+</small></div>
+        <div class="stat-label">累計施術数</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4.9</div>
+        <div class="stat-label">平均評価</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">90<small style="font-size:1.4rem">%</small></div>
+        <div class="stat-label">リピート率</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-img-grid">
+      <div class="hero-img-block">
+        <!-- nail art SVG illustration -->
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+          <rect width="400" height="300" fill="#e2d6ce"/>
+          <ellipse cx="200" cy="220" rx="90" ry="22" fill="#c4a99a" opacity=".4"/>
+          <!-- fingers -->
+          <rect x="100" y="80" width="38" height="110" rx="19" fill="#f0e0d8"/>
+          <rect x="148" y="60" width="38" height="130" rx="19" fill="#f0e0d8"/>
+          <rect x="196" y="55" width="38" height="135" rx="19" fill="#f0e0d8"/>
+          <rect x="244" y="65" width="38" height="125" rx="19" fill="#f0e0d8"/>
+          <rect x="292" y="90" width="36" height="105" rx="18" fill="#f0e0d8"/>
+          <!-- nails -->
+          <rect x="104" y="82" width="30" height="38" rx="15" fill="#d4a9a0"/>
+          <rect x="152" y="62" width="30" height="40" rx="15" fill="#c49088"/>
+          <rect x="200" y="57" width="30" height="42" rx="15" fill="#d4a9a0"/>
+          <rect x="248" y="67" width="30" height="40" rx="15" fill="#c49088"/>
+          <rect x="295" y="92" width="29" height="37" rx="14" fill="#d4a9a0"/>
+          <!-- accent dots on nails -->
+          <circle cx="169" cy="76" r="3" fill="white" opacity=".7"/>
+          <circle cx="215" cy="71" r="3" fill="white" opacity=".7"/>
+          <circle cx="265" cy="80" r="3" fill="white" opacity=".7"/>
+        </svg>
+        <span class="img-label">ジェルネイル</span>
+      </div>
+      <div class="hero-img-block">
+        <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+          <rect width="400" height="300" fill="#cfc0b8"/>
+          <!-- abstract nail polish bottle -->
+          <rect x="170" y="60" width="60" height="120" rx="8" fill="#b89088"/>
+          <rect x="182" y="40" width="36" height="25" rx="4" fill="#a07870"/>
+          <rect x="193" y="25" width="14" height="20" rx="3" fill="#8c6860"/>
+          <!-- shimmer lines -->
+          <line x1="185" y1="80" x2="185" y2="160" stroke="white" stroke-width="1.5" opacity=".3"/>
+          <line x1="200" y1="70" x2="200" y2="168" stroke="white" stroke-width="1" opacity=".2"/>
+          <!-- decorative petals -->
+          <ellipse cx="120" cy="200" rx="35" ry="15" fill="#c9a99a" opacity=".4" transform="rotate(-30 120 200)"/>
+          <ellipse cx="280" cy="100" rx="28" ry="12" fill="#c9a99a" opacity=".35" transform="rotate(20 280 100)"/>
+          <ellipse cx="300" cy="230" rx="22" ry="10" fill="#b89088" opacity=".4" transform="rotate(-10 300 230)"/>
+        </svg>
+        <span class="img-label">アートデザイン</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <span class="section-eyebrow">Services</span>
+  <h2 class="section-title">ご提供メニュー</h2>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+        <ellipse cx="20" cy="26" rx="10" ry="4"/>
+        <rect x="13" y="8" width="14" height="20" rx="7"/>
+      </svg>
+      <div class="service-name">ワンカラージェル</div>
+      <p class="service-desc">上品な単色仕上げ。発色と持ちにこだわった厳選ジェルで、シンプルの中に品格を宿します。</p>
+      <div class="service-price">¥5,500<span>税込〜</span></div>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M8 32 Q20 10 32 32"/>
+        <circle cx="20" cy="18" r="4"/>
+        <path d="M14 26 Q20 20 26 26"/>
+      </svg>
+      <div class="service-name">デザインジェル</div>
+      <p class="service-desc">グラデーション・マーブル・押し花など。トレンドとご要望を組み合わせた、世界に一つのデザインを。</p>
+      <div class="service-price">¥9,900<span>税込〜</span></div>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M10 30 L20 10 L30 30"/>
+        <path d="M14 22 h12"/>
+        <circle cx="20" cy="34" r="3"/>
+      </svg>
+      <div class="service-name">ネイルケア</div>
+      <p class="service-desc">甘皮処理・保湿・爪の形整え。ジェルなしでも指先を美しく整えるプロのハンドケアメニューです。</p>
+      <div class="service-price">¥3,300<span>税込〜</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section" id="process">
+  <span class="section-eyebrow">How it works</span>
+  <h2 class="section-title">ご来店の流れ</h2>
+
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-line"></div>
+      <div class="step-name">ご予約</div>
+      <p class="step-desc">LINEまたはウェブから24時間受付。希望の日時とメニューをお知らせください。</p>
+    </div>
+    <div class="step">
+      <div class="step-line"></div>
+      <div class="step-name">カウンセリング</div>
+      <p class="step-desc">ご来店後、お好みのスタイルや爪のお悩みを丁寧にお伺いします。</p>
+    </div>
+    <div class="step">
+      <div class="step-line"></div>
+      <div class="step-name">施術</div>
+      <p class="step-desc">完全個室でリラックスしながら施術。BGMやドリンクもご自由にどうぞ。</p>
+    </div>
+    <div class="step">
+      <div class="step-line"></div>
+      <div class="step-name">アフターケア</div>
+      <p class="step-desc">持ちを良くするためのホームケアアドバイスをお渡しします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="voice">
+  <span class="section-eyebrow">Customer Voice</span>
+  <h2 class="section-title">お客様の声</h2>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <p class="testi-text">「初めてのネイルサロンで緊張していましたが、丁寧なカウンセリングのおかげでリラックスできました。仕上がりも想像以上で感動です」</p>
+      <div class="testi-author">30代 / 会社員 / Aさま</div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-text">「完全個室なので周りを気にせず過ごせるのが最高です。持ちも3週間以上で、コスパも抜群。毎月通っています」</p>
+      <div class="testi-author">20代 / フリーランス / Mさま</div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-text">「デザインの相談に乗ってくれて、自分では思いつかなかった素敵なアートに。指先を見るたびに気分が上がります」</p>
+      <div class="testi-author">40代 / 主婦 / Kさま</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="reserve">
+  <span class="section-eyebrow">Reservation</span>
+  <h2 class="section-title">特別な時間を、<em style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--blush)">今日から。</em></h2>
+  <p>初回限定 10% OFF でご案内しています。<br>まずはお気軽にご相談ください。</p>
+  <a class="btn-primary" href="tel:0312345678" style="font-size:.85rem;padding:1rem 3rem;">
+    LINE / TEL で予約する
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a class="logo" href="#">Lune Nail</a>
+  <div class="footer-info">
+    <p>〒104-0061 東京都中央区銀座1-2-3 ルネビル3F</p>
+    <p>営業時間 10:00〜20:00（不定休）</p>
+    <p style="margin-top:.4rem;font-size:.7rem;">© 2026 Lune Nail. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="demo-bar">
+  <span><b>これはサンプルサイトです。</b>架空の店舗を想定して制作しました。実在の店舗ではありません。</span>
+  <a href="../../">制作者のページへ</a>
+</div>
+
+</body>
+</html>
