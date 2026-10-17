@@ -96,8 +96,16 @@ h2.title{
   border:1px solid var(--line);border-radius:999px;
   box-shadow:0 10px 30px -22px rgba(21,19,15,.5);
 }
-.nav-logo{font-weight:800;letter-spacing:-.01em;text-decoration:none;font-size:1rem}
-.nav-logo span{color:var(--mid);font-weight:500;font-size:.72rem;letter-spacing:.14em;margin-left:.35rem}
+.nav-logo{
+  text-decoration:none;font-size:.95rem;font-weight:500;
+  letter-spacing:.32em;text-indent:.32em;line-height:1;
+  display:inline-flex;align-items:baseline;gap:.9rem;
+}
+.nav-logo span{
+  color:var(--mid);font-weight:600;font-size:.56rem;letter-spacing:.24em;
+  text-indent:0;padding-left:.9rem;border-left:1px solid var(--line);
+}
+@media(max-width:520px){.nav-logo span{display:none}}
 .nav-menu{display:flex;gap:1.6rem;list-style:none;margin-left:auto}
 .nav-menu a{font-size:.82rem;color:var(--mid);text-decoration:none;transition:color .2s}
 .nav-menu a:hover{color:var(--ink)}
@@ -279,10 +287,17 @@ h1 .hl{
 .price-note{font-size:.8rem;color:var(--mid);margin-top:1.6rem}
 
 /* ── プロフィール ── */
-.profile{display:grid;grid-template-columns:200px 1fr;gap:clamp(1.6rem,4vw,3rem);align-items:start;margin-top:3rem}
-@media(max-width:700px){.profile{grid-template-columns:1fr;max-width:420px}}
-.avatar{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--surface)}
-.avatar img{width:100%;aspect-ratio:1;object-fit:cover}
+.profile{display:grid;grid-template-columns:300px 1fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:start;margin-top:3rem}
+@media(max-width:800px){.profile{grid-template-columns:1fr}}
+.bio{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.8rem 1.7rem}
+.bio-top{display:flex;align-items:center;gap:1rem;padding-bottom:1.3rem;border-bottom:1px solid var(--line)}
+.bio-top img{width:60px;height:60px;border-radius:50%;object-fit:cover;flex:none;border:1px solid var(--line)}
+.bio-top b{display:block;font-size:1.02rem;font-weight:700;line-height:1.4}
+.bio-top span{display:block;font-size:.58rem;font-weight:600;letter-spacing:.2em;color:var(--green);margin-top:.15rem}
+.bio dl{margin-top:.4rem}
+.bio dt{font-size:.56rem;font-weight:600;letter-spacing:.2em;color:var(--mid);padding-top:.95rem}
+.bio dd{font-size:.86rem;padding-bottom:.95rem;border-bottom:1px solid var(--line)}
+.bio dd:last-of-type{border-bottom:0;padding-bottom:0}
 .profile-body p{font-size:.94rem;color:var(--mid)}
 .profile-body p+p{margin-top:1rem}
 .profile-body strong{color:var(--ink);font-weight:600}
@@ -341,7 +356,7 @@ footer{padding:2.6rem 0;font-size:.78rem;color:var(--mid)}
 <body>
 
 <nav class="nav">
-  <a class="nav-logo" href="#top">ラムラム<span>KYOTO</span></a>
+  <a class="nav-logo" href="#top">RAMURAM<span>KYOTO</span></a>
   <ul class="nav-menu">
     <li><a href="#works">制作事例</a></li>
     <li><a href="#can">できること</a></li>
@@ -581,9 +596,19 @@ footer{padding:2.6rem 0;font-size:.78rem;color:var(--mid)}
     <span class="eyebrow">About</span>
     <h2 class="title">作っている人</h2>
     <div class="profile">
-      <div class="avatar rv"><img src="links/avatar.jpg" alt="ラムラム" width="440" height="440" loading="lazy"></div>
+      <div class="bio rv">
+        <div class="bio-top">
+          <img src="links/avatar.jpg" alt="" width="60" height="60" loading="lazy">
+          <div><b>ラムラム</b><span>RAMURAM</span></div>
+        </div>
+        <dl>
+          <dt>BASE</dt><dd>京都市／オンライン全国対応</dd>
+          <dt>BACKGROUND</dt><dd>元銀行員</dd>
+          <dt>SERVICE</dt><dd>ホームページ制作・改修・公開後の更新代行</dd>
+          <dt>CONTACT HOURS</dt><dd>平日 21時まで／土日も返信</dd>
+        </dl>
+      </div>
       <div class="profile-body rv">
-        <p><strong>ラムラム</strong>／京都・Webサイト制作</p>
         <p>もともと銀行で働いていました。数字を見る仕事をしていたので、「このページは誰に何をしてほしいのか」を先に決めてから作ります。見た目だけを整えて終わり、ということはしません。</p>
         <p>ひとりでやっているので、窓口から制作まで同じ人間が担当します。途中で担当者が変わって話が通じなくなる、ということは起こりません。</p>
         <p>平日は21時まで、土日も連絡がつきます。「こんなこと聞いていいのかな」という内容でも気にせずどうぞ。</p>
