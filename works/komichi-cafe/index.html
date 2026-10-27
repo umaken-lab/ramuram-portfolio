@@ -316,6 +316,9 @@ footer{padding:2.6rem 0;text-align:center;font-size:.74rem;color:var(--mid)}
 </div>
 
 <script>
+/* ?embed=1 のときはサンプル表示バーを隠す（紹介画像に使うため）。
+   公開ページを直接開いた場合は常に表示される。 */
+try{if(location.search.indexOf('embed=1')>-1){var _b=document.querySelector('.demo-bar');if(_b)_b.style.display='none';document.body.style.paddingBottom='0';}}catch(e){}
 var hd=document.getElementById('hd');
 addEventListener('scroll',function(){hd.classList.toggle('on',scrollY>window.innerHeight*.8)},{passive:true});
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
