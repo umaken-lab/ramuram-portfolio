@@ -209,6 +209,7 @@ h1 .hl{
   padding:.3rem .8rem;border-radius:999px;
 }
 .tag.is-sample{color:var(--autumn);border-color:rgba(192,86,42,.3);background:var(--autumn-soft)}
+.tag.is-real{color:#fff;border-color:var(--green);background:var(--green)}
 .work h3{font-size:clamp(1.2rem,2.8vw,1.55rem);font-weight:700;line-height:1.6;text-wrap:balance}
 .work p{color:var(--mid);font-size:.92rem;margin-top:.9rem}
 .work-link{
@@ -427,9 +428,26 @@ footer{padding:2.6rem 0;font-size:.78rem;color:var(--mid)}
   <div class="wrap">
     <span class="eyebrow">Works</span>
     <h2 class="title">制作事例</h2>
-    <p class="lead">実際に動くページとして公開しています。クリックすると、そのままご覧いただけます。いずれも架空の店舗を想定したサンプルで、写真はフリー素材を使っています。実際の制作ではお店の写真をお預かりします。</p>
+    <p class="lead">実際に動くページとして公開しています。クリックすると、そのままご覧いただけます。はじめの1件は実店舗のサイトを調べた記録で、それ以降は架空の店舗を想定したサンプルです。サンプルの写真はフリー素材を使っています。実際の制作ではお店の写真をお預かりします。</p>
 
     <div class="work rv">
+      <div class="work-shot shot">
+        <div class="shot-bar"><s></s><s></s><s></s><em>works/report</em></div>
+        <div class="shot-view"><iframe src="works/report/" loading="lazy" tabindex="-1" scrolling="no" title="京都の個人店9サイトの調査記録"></iframe></div>
+      </div>
+      <div>
+        <div class="work-tagrow">
+          <span class="tag is-real">実店舗の調査</span>
+          <span class="tag">9サイト</span>
+          <span class="tag">実機検証</span>
+        </div>
+        <h3>個人店のサイト9件を、スマホで1件ずつ開いて確認しました</h3>
+        <p>個人店のホームページを iPhone と同じ幅で実際に開き、何が起きているかを記録しました。無料プランの広告、10pxの文字、押しても発信されない電話番号。9件のうち技術的に問題がなかったのは2件でした。お店の名前は伏せています。</p>
+        <a class="work-link" href="works/report/" target="_blank" rel="noopener">調査記録を読む →</a>
+      </div>
+    </div>
+
+    <div class="work alt rv">
       <div class="work-shot shot">
         <div class="shot-bar"><s></s><s></s><s></s><em>komichi-coffee.jp</em></div>
         <div class="shot-view"><iframe src="works/komichi-cafe/" loading="lazy" tabindex="-1" scrolling="no" title="喫茶こみち サンプル"></iframe></div>
@@ -446,7 +464,7 @@ footer{padding:2.6rem 0;font-size:.78rem;color:var(--mid)}
       </div>
     </div>
 
-    <div class="work alt rv">
+    <div class="work rv">
       <div class="work-shot shot">
         <div class="shot-bar"><s></s><s></s><s></s><em>lino-hair.jp</em></div>
         <div class="shot-view"><iframe src="works/lino-hair/" loading="lazy" tabindex="-1" scrolling="no" title="hair salon LINO サンプル"></iframe></div>
@@ -463,7 +481,7 @@ footer{padding:2.6rem 0;font-size:.78rem;color:var(--mid)}
       </div>
     </div>
 
-    <div class="work rv">
+    <div class="work alt rv">
       <div class="work-shot shot">
         <div class="shot-bar"><s></s><s></s><s></s><em>lune-nail.jp</em></div>
         <div class="shot-view"><iframe src="works/lune-nail/" loading="lazy" tabindex="-1" scrolling="no" title="Lune Nail サンプル"></iframe></div>
