@@ -32,17 +32,19 @@ const SITE = "https://ramuram.drca-business.workers.dev/assets/ig";
 const ROOT = path.resolve(__dirname, "..");
 
 /* ── 投稿の定義 ───────────────────────────── */
+/* 並びはファイル名順ではない。_02 がフック（文字カード）、_01 がトップ画面。
+   1枚目はフックで止めてもらう設計なので、_02 → _01 → _03 … の順で出す。 */
 const POSTS = {
   cafe: {
-    images: ["cafe_01", "cafe_02", "cafe_03", "cafe_04", "cafe_05", "cafe_06", "cafe_07"],
+    images: ["cafe_02", "cafe_01", "cafe_03", "cafe_04", "cafe_05", "cafe_06", "cafe_07"],
     captionFile: "captions/cafe.txt",
   },
   hair: {
-    images: ["hair_01", "hair_02", "hair_03", "hair_04", "hair_05", "hair_06", "hair_07"],
+    images: ["hair_02", "hair_01", "hair_03", "hair_04", "hair_05", "hair_06", "hair_07"],
     captionFile: "captions/hair.txt",
   },
   nail: {
-    images: ["nail_01", "nail_02", "nail_03", "nail_04", "nail_05", "nail_06", "nail_07"],
+    images: ["nail_02", "nail_01", "nail_03", "nail_04", "nail_05", "nail_06", "nail_07"],
     captionFile: "captions/nail.txt",
   },
   text1: { images: ["text_01"], captionFile: "captions/text1.txt" },

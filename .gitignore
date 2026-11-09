@@ -18,3 +18,11 @@ drafts/
 # アカウント設定の点検用スクショ（個人情報を含むため公開しない）
 checks/
 .env.ig
+.env.cf
+
+# 使い終わった素材・古い下書きの置き場（ローカルのみ）
+_archive/
+_README_ローカル用.md
+
+# Claude Code のスラッシュコマンド定義（ローカルのみ）
+.claude/
