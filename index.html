@@ -163,6 +163,7 @@ img.avatar{width:100%;height:auto;object-fit:cover}
 .cta .mail{font-size:13px;opacity:.75;margin-top:22px}
 footer{padding:40px 0 60px;font-size:13px;color:var(--mid)}footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
+.glist{display:grid;grid-template-columns:1fr 1fr;gap:14px}.glist a{display:block;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 22px;transition:.2s}.glist a:hover{border-color:var(--acc)}.glist b{display:block;font-size:15.5px;line-height:1.6}.glist span{font-size:12.5px;color:var(--acc);font-weight:700}@media(max-width:800px){.glist{grid-template-columns:1fr}}
 /* reveal */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.strip .row{animation:none}}
@@ -322,6 +323,12 @@ footer{padding:40px 0 60px;font-size:13px;color:var(--mid)}footer .wrap{display:
   </div>
 </div></section>
 
+<section class="sec" id="guide" style="padding-top:0"><div class="wrap">
+  <div class="sec-h rv"><span class="en">Column</span><h2>京都の小さなお店のための記事</h2><p>ホームページの料金や、載せる内容、Googleマップの整え方などをまとめています。</p></div>
+  <div class="glist rv"><a href="guide/kyoto-homepage-price/"><b>京都の個人店のホームページ、いくらかかる？料金の内訳と安く始める方法</b><span>ホームページの料金</span></a><a href="guide/salon-homepage/"><b>美容室・ネイルサロンのホームページに載せること｜ホットペッパーとの使い分け</b><span>美容室・ネイルのホームページ</span></a><a href="guide/restaurant-homepage/"><b>カフェ・居酒屋のホームページ、グルメサイトだけで困ること｜京都の飲食店向け</b><span>飲食店のホームページ</span></a><a href="guide/google-map/"><b>お店のGoogleマップ（ビジネスプロフィール）の整え方と、紹介文の書き方</b><span>Googleマップの使い方</span></a><a href="guide/instagram-only/"><b>Instagramだけでお店をやっている人が、ホームページを持つ理由</b><span>Instagramだけのお店</span></a></div>
+  <p class="note-s"><a href="guide/">記事の一覧を見る →</a></p>
+</div></section>
+
 <section class="cta" id="contact">
   <span class="en">Contact</span>
   <h2>まずは、お店の名前を<br>教えてください。</h2>
@@ -333,7 +340,7 @@ footer{padding:40px 0 60px;font-size:13px;color:var(--mid)}footer .wrap{display:
   <p class="mail">drca.business@gmail.com ／ 平日21時まで・土日も返信します</p>
 </section>
 
-<footer><div class="wrap"><span>© 2026 ラムラム</span><span><a href="#works">制作事例</a> ／ <a href="#price">料金</a> ／ <a href="https://note.com/cc_fukugyo" target="_blank" rel="noopener">note</a></span></div></footer>
+<footer><div class="wrap"><span>© 2026 ラムラム</span><span><a href="#works">制作事例</a> ／ <a href="#price">料金</a> ／ <a href="guide/">記事</a> ／ <a href="https://note.com/cc_fukugyo" target="_blank" rel="noopener">note</a></span></div></footer>
 
 <script>
 (function(){var els=document.querySelectorAll('.rv');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
