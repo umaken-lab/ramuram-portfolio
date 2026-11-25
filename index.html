@@ -3,360 +3,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ラムラム｜京都のホームページ制作</title>
-<meta name="description" content="京都で個人事業主・中小企業さま向けのホームページを制作しています。スマホで見やすく、更新しやすいサイトを。オータムキャンペーン実施中。">
-<meta property="og:title" content="ラムラム｜京都のホームページ制作">
-<meta property="og:description" content="京都で個人事業主・中小企業さま向けのホームページを制作しています。">
+<title>ラムラム｜京都の小さなお店のホームページ制作</title>
+<meta name="description" content="京都で、個人店・小規模事業者さま向けのホームページを制作しています。ご依頼の前に、お店のページの見本を無料でお作りします。元銀行員が、電話・予約・来店までの流れから設計します。">
+<meta property="og:title" content="ラムラム｜京都の小さなお店のホームページ制作">
+<meta property="og:description" content="ご依頼の前に、お店のページの見本を無料でお作りします。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ramuram.drca-business.workers.dev/">
 <meta property="og:image" content="https://ramuram.drca-business.workers.dev/assets/ig/cafe_01.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
-:root{
-  --bg:#fbfaf7;
-  --surface:#ffffff;
-  --ink:#15130f;
-  --mid:#6e6a61;
-  --line:#e7e3db;
-  --green:#1c5c44;
-  --green-d:#154634;
-  --autumn:#c0562a;
-  --autumn-soft:#fdf1e9;
-  --r:16px;
-  --pad:clamp(4.5rem,9vw,8rem);
-  --gut:clamp(1.25rem,5vw,3rem);
-  --max:1120px;
-}
-
+:root{--bg:#f7f6f2;--paper:#fff;--ink:#14130f;--mid:#67645c;--line:#e4e0d6;--acc:#1c5c44;--acc-d:#123f2f;--acc-l:#e6efe9;--warm:#c0562a;--warm-l:#fbeee6;--gut:clamp(20px,5vw,56px);--max:1160px;--pad:clamp(80px,11vw,140px)}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-
-body{
-  background:var(--bg);
-  color:var(--ink);
-  font-family:'Figtree','Noto Sans JP',system-ui,sans-serif;
-  font-size:16px;
-  line-height:1.95;
-  letter-spacing:.02em;
-  font-feature-settings:"palt";
-  overflow-x:hidden;
-}
-
-img{max-width:100%;display:block}
-a{color:inherit}
-
-/* 微細なノイズで平坦さを消す */
-body::before{
-  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
-}
-body>*{position:relative;z-index:1}
-
-.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
-section[id],header[id]{scroll-margin-top:86px}
-
-/* ── 共通パーツ ── */
-.eyebrow{
-  font-family:'Figtree',sans-serif;
-  font-size:.7rem;font-weight:600;letter-spacing:.22em;
-  color:var(--green);text-transform:uppercase;
-  display:inline-flex;align-items:center;gap:.6rem;
-}
-.eyebrow::before{content:'';width:22px;height:1px;background:var(--green)}
-
-h2.title{
-  font-size:clamp(1.65rem,4.2vw,2.5rem);
-  font-weight:700;line-height:1.5;letter-spacing:-.01em;
-  margin-top:1rem;
-}
-.lead{color:var(--mid);margin-top:1.1rem;font-size:.95rem;max-width:36em}
-
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-  padding:1rem 2rem;border-radius:999px;
-  font-size:.92rem;font-weight:500;text-decoration:none;
-  transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
-  white-space:nowrap;
-}
-.btn-fill{background:var(--green);color:#fff;box-shadow:0 8px 20px -10px rgba(28,92,68,.7)}
-.btn-fill:hover{background:var(--green-d);transform:translateY(-2px);box-shadow:0 14px 26px -12px rgba(28,92,68,.8)}
-.btn-ghost{border:1px solid var(--line);background:var(--surface);color:var(--ink)}
-.btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
-
-/* ── NAV（浮かぶピル） ── */
-.nav{
-  position:fixed;top:14px;left:50%;transform:translateX(-50%);
-  z-index:90;width:calc(100% - 2rem);max-width:var(--max);
-  display:flex;align-items:center;gap:1rem;
-  padding:.55rem .6rem .55rem 1.4rem;
-  background:rgba(255,255,255,.82);
-  -webkit-backdrop-filter:saturate(180%) blur(14px);
-  backdrop-filter:saturate(180%) blur(14px);
-  border:1px solid var(--line);border-radius:999px;
-  box-shadow:0 10px 30px -22px rgba(21,19,15,.5);
-}
-.nav-logo{
-  text-decoration:none;font-size:.95rem;font-weight:500;
-  letter-spacing:.32em;text-indent:.32em;line-height:1;
-  display:inline-flex;align-items:baseline;gap:.9rem;
-}
-.nav-logo span{
-  color:var(--mid);font-weight:600;font-size:.56rem;letter-spacing:.24em;
-  text-indent:0;padding-left:.9rem;border-left:1px solid var(--line);
-}
-@media(max-width:520px){.nav-logo span{display:none}}
-.nav-menu{display:flex;gap:1.6rem;list-style:none;margin-left:auto}
-.nav-menu a{font-size:.82rem;color:var(--mid);text-decoration:none;transition:color .2s}
-.nav-menu a:hover{color:var(--ink)}
-.nav-cta{
-  background:var(--ink);color:#fff;text-decoration:none;
-  padding:.62rem 1.3rem;border-radius:999px;font-size:.82rem;font-weight:500;
-  transition:background .2s;
-}
-.nav-cta:hover{background:var(--green)}
-@media(max-width:840px){
-  .nav-menu{display:none}
-  .nav-cta{margin-left:auto}
-}
-
-/* ── HERO ── */
-.hero{padding:clamp(7rem,14vw,10rem) 0 clamp(3rem,7vw,5rem)}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
-
-.badge{
-  display:inline-flex;align-items:center;gap:.55rem;
-  background:var(--autumn-soft);color:var(--autumn);
-  border:1px solid rgba(192,86,42,.22);
-  padding:.42rem 1rem;border-radius:999px;
-  font-size:.76rem;font-weight:500;letter-spacing:.02em;
-}
-.badge i{width:6px;height:6px;border-radius:50%;background:var(--autumn);font-style:normal;flex:none}
-
-h1{
-  font-size:clamp(2.1rem,6vw,3.6rem);
-  font-weight:800;line-height:1.38;letter-spacing:-.025em;
-  margin:1.4rem 0 0;
-}
-h1 .hl{
-  background:linear-gradient(transparent 76%,rgba(28,92,68,.22) 76%);
-  padding-inline:.06em;
-}
-.hero-body{color:var(--mid);margin-top:1.4rem;font-size:1rem;max-width:30em}
-.hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.2rem}
-.hero-meta{
-  display:flex;flex-wrap:wrap;gap:1.6rem;margin-top:2.4rem;
-  padding-top:1.6rem;border-top:1px solid var(--line);
-}
-.hero-meta div{min-width:0}
-.hero-meta dt{font-size:.68rem;letter-spacing:.16em;color:var(--mid);font-weight:600;text-transform:uppercase}
-.hero-meta dd{font-size:.94rem;font-weight:500;margin-top:.2rem}
-
-/* ── ブラウザ風プレビュー ── */
-.shot{
-  border-radius:var(--r);overflow:hidden;background:var(--surface);
-  border:1px solid var(--line);
-  box-shadow:0 36px 60px -34px rgba(21,19,15,.45);
-}
-.shot-bar{
-  display:flex;align-items:center;gap:.4rem;
-  padding:.65rem .9rem;background:#f3f1ec;border-bottom:1px solid var(--line);
-}
-.shot-bar s{width:9px;height:9px;border-radius:50%;background:#d8d3c9;display:block}
-.shot-bar em{
-  font-style:normal;margin-left:.6rem;font-size:.66rem;color:var(--mid);
-  background:#fff;border-radius:999px;padding:.18rem .8rem;
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-}
-.shot-view{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;background:#fff}
-.shot-view iframe{
-  position:absolute;top:0;left:0;width:1440px;height:900px;border:0;
-  transform-origin:0 0;pointer-events:none;
-}
-.hero .shot{animation:float 7s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-
-/* ── 困りごと ── */
-.pains{background:var(--ink);color:#f3f1ec;padding:var(--pad) 0}
-.pains .eyebrow{color:#8fcbb0}
-.pains .eyebrow::before{background:#8fcbb0}
-.pains h2.title{color:#fff}
-.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.14);margin-top:3rem;border-radius:var(--r);overflow:hidden}
-@media(max-width:800px){.pain-grid{grid-template-columns:1fr}}
-.pain{background:var(--ink);padding:2.2rem 1.8rem}
-.pain b{display:block;font-size:1.02rem;font-weight:600;line-height:1.7}
-.pain p{color:#a8a399;font-size:.86rem;margin-top:.7rem}
-.pain-num{font-family:'Figtree',sans-serif;font-size:.7rem;letter-spacing:.2em;color:#8fcbb0;font-weight:600;margin-bottom:1rem;display:block}
-
-/* ── セクション共通 ── */
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans JP',sans-serif;font-size:16px;line-height:1.9;letter-spacing:.02em;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.en{font-family:'Figtree',sans-serif;font-weight:700;letter-spacing:.14em;font-size:12px;color:var(--acc);text-transform:uppercase}
 .sec{padding:var(--pad) 0}
+.sec-h{margin-bottom:56px}.sec-h h2{font-size:clamp(26px,4.4vw,40px);line-height:1.45;font-weight:900;letter-spacing:.02em;margin-top:10px}.sec-h p{color:var(--mid);margin-top:16px;max-width:640px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 30px;border-radius:999px;font-weight:700;font-size:15px;transition:.2s}
+.btn-fill{background:var(--acc);color:#fff}.btn-fill:hover{background:var(--acc-d)}
+.btn-line{border:1.5px solid var(--ink)}.btn-line:hover{background:var(--ink);color:#fff}
+.btn .ar{font-family:'Figtree';font-weight:800}
 
-/* ── 実績 ── */
-.work{
-  display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3.4rem);
-  align-items:center;margin-top:clamp(3rem,6vw,5rem);
-}
-.work.alt .work-shot{order:2}
-@media(max-width:900px){
-  .work{grid-template-columns:1fr}
-  .work.alt .work-shot{order:0}
-}
-.work-tagrow{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
-.tag{
-  font-size:.7rem;letter-spacing:.06em;color:var(--mid);
-  border:1px solid var(--line);background:var(--surface);
-  padding:.3rem .8rem;border-radius:999px;
-}
-.tag.is-sample{color:var(--autumn);border-color:rgba(192,86,42,.3);background:var(--autumn-soft)}
-.tag.is-real{color:#fff;border-color:var(--green);background:var(--green)}
-.work h3{font-size:clamp(1.2rem,2.8vw,1.55rem);font-weight:700;line-height:1.6;text-wrap:balance}
-.work p{color:var(--mid);font-size:.92rem;margin-top:.9rem}
-.work-link{
-  display:inline-flex;align-items:center;gap:.5rem;margin-top:1.5rem;
-  font-size:.9rem;font-weight:500;text-decoration:none;color:var(--green);
-  border-bottom:1px solid currentColor;padding-bottom:.2rem;
-  transition:gap .2s;
-}
-.work-link:hover{gap:.9rem}
+/* header */
+.hd{position:sticky;top:0;z-index:50;background:rgba(247,246,242,.88);backdrop-filter:blur(10px);border-bottom:1px solid transparent}
+.hd .wrap{display:flex;align-items:center;height:72px;gap:28px}
+.logo{font-family:'Figtree';font-weight:800;font-size:20px;letter-spacing:.18em}.logo small{font-size:10px;letter-spacing:.2em;color:var(--mid);margin-left:10px;font-weight:600}
+.hd nav{display:flex;gap:26px;margin-left:auto;font-size:14px;font-weight:500}.hd nav a:hover{color:var(--acc)}
+.hd .btn{height:44px;padding:0 22px;font-size:14px;white-space:nowrap}@media(max-width:600px){.hd .btn{padding:0 18px;font-size:13px}.hd .pc{display:none}.badge{font-size:11.5px;padding:6px 14px}}
+@media(max-width:900px){.hd nav{display:none}.hd .btn{margin-left:auto}}
 
-.work-soon{
-  margin-top:3.4rem;border:1px dashed var(--line);border-radius:var(--r);
-  padding:2.2rem;text-align:center;color:var(--mid);font-size:.88rem;
-}
+/* hero */
+.hero{padding:56px 0 90px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:10px;background:var(--warm-l);color:var(--warm);font-size:13px;font-weight:700;padding:7px 16px;border-radius:999px}.badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--warm)}
+.hero h1{font-size:clamp(28px,3.9vw,46px);word-break:keep-all;overflow-wrap:anywhere;line-height:1.35;font-weight:900;letter-spacing:.01em;margin:26px 0 24px}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 64%,#cfe3d7 64%)}
+.hero .lead{color:var(--mid);font-size:16.5px;max-width:520px}
+.hero .acts{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.facts{display:flex;gap:28px;margin-top:40px;padding-top:26px;border-top:1px solid var(--line);flex-wrap:wrap}
+.facts div{font-size:13px;color:var(--mid)}.facts b{display:block;font-size:22px;color:var(--ink);font-weight:900;line-height:1.3}.facts b small{font-size:13px;font-weight:700;margin-left:2px}
+.phones{position:relative;height:600px}
+.phone{position:absolute;width:250px;border-radius:38px;background:#111;padding:9px;box-shadow:0 30px 60px rgba(20,19,15,.22),0 6px 14px rgba(20,19,15,.12)}
+.phone img{border-radius:30px;width:100%;aspect-ratio:390/844;object-fit:cover;object-position:top}
+.phone.p1{left:2%;top:70px;transform:rotate(-7deg);z-index:1}.phone.p2{left:32%;top:0;z-index:3}.phone.p3{right:-2%;top:90px;transform:rotate(7deg);z-index:2}
+.phones .cap{position:absolute;left:50%;bottom:-34px;transform:translateX(-50%);font-size:12px;color:var(--mid);white-space:nowrap}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.phones{height:430px;margin-top:10px}.phone{width:178px;border-radius:28px;padding:7px}.phone img{border-radius:22px}.phone.p1{left:0;top:56px}.phone.p2{left:50%;margin-left:-89px}.phone.p3{right:0;top:66px}}
 
-/* ── できること ── */
-.cans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:3rem}
-@media(max-width:860px){.cans{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.cans{grid-template-columns:1fr}}
-.can{
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
-  padding:1.8rem 1.6rem;transition:transform .25s ease,box-shadow .25s ease;
-}
-.can:hover{transform:translateY(-4px);box-shadow:0 20px 34px -26px rgba(21,19,15,.5)}
-.can b{display:block;font-size:1rem;font-weight:600}
-.can p{color:var(--mid);font-size:.85rem;margin-top:.6rem}
-.can-ico{
-  width:38px;height:38px;border-radius:11px;
-  background:rgba(28,92,68,.09);color:var(--green);
-  display:grid;place-items:center;margin-bottom:1.1rem;
-}
-.can-ico svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.hero{position:relative}.hero::before{content:'';position:absolute;width:760px;height:760px;right:-180px;top:-160px;border-radius:44% 56% 62% 38%/42% 46% 54% 58%;background:radial-gradient(circle at 30% 30%,#dcebe2,#eef3ee 60%,transparent 70%);z-index:-1}
+.me{display:flex;gap:14px;align-items:center;margin-top:26px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 22px 8px 8px;width:fit-content;max-width:100%}
+.me img{width:52px;height:52px;border-radius:50%;object-fit:cover}.me span{font-size:12px;color:var(--mid);line-height:1.6}.me b{display:block;font-size:13.5px;color:var(--ink)}
+.kyoto{position:relative;min-height:520px;display:flex;align-items:flex-end;color:#fff;background:#1a1a17 url(assets/profile/kyoto.jpg) center/cover no-repeat}
+.kyoto::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 20%,rgba(10,20,15,.78))}
+.kyoto-in{position:relative;padding-top:120px;padding-bottom:64px}.kyoto .en{color:#9fd1b7}
+.kyoto h2{font-size:clamp(26px,4.4vw,42px);line-height:1.5;font-weight:900;margin:10px 0 16px}.kyoto p{max-width:640px;opacity:.9;font-size:15px}
+.nums{background:var(--paper);border-bottom:1px solid var(--line)}.nums .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.nums .wrap>div{padding:34px 18px;text-align:center;border-right:1px solid var(--line)}.nums .wrap>div:last-child{border-right:0}
+.nums b{display:block;font-family:'Figtree';font-weight:800;font-size:44px;line-height:1.1;color:var(--acc)}.nums b small{font-size:16px;margin-left:2px;color:var(--ink)}.nums span{font-size:12.5px;color:var(--mid);line-height:1.7;display:block;margin-top:6px}
+@media(max-width:800px){.nums .wrap{grid-template-columns:1fr 1fr}.nums .wrap>div:nth-child(2){border-right:0}.nums .wrap>div:nth-child(-n+2){border-bottom:1px solid var(--line)}.nums b{font-size:34px}.kyoto{min-height:460px}}
+img.avatar{width:100%;height:auto;object-fit:cover}
 
-/* ── 流れ ── */
-.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:3rem;counter-reset:s}
-@media(max-width:860px){.flow{grid-template-columns:1fr 1fr}}
-@media(max-width:520px){.flow{grid-template-columns:1fr}}
-.step{position:relative;padding-top:2.6rem;border-top:2px solid var(--line)}
-.step::before{
-  counter-increment:s;content:counter(s,decimal-leading-zero);
-  position:absolute;top:-.1rem;left:0;transform:translateY(-50%);
-  font-family:'Figtree',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.14em;
-  color:var(--green);background:var(--bg);padding-right:.7rem;
-}
-.step b{display:block;font-size:1rem;font-weight:600}
-.step p{color:var(--mid);font-size:.85rem;margin-top:.5rem}
+/* industries strip */
+.strip{background:var(--ink);color:#fff;padding:22px 0;overflow:hidden}
+.strip .row{display:flex;gap:44px;white-space:nowrap;font-weight:700;font-size:15px;opacity:.9;animation:mv 40s linear infinite;width:max-content}
+.strip span::before{content:'●';color:#7fb59a;font-size:9px;margin-right:12px;vertical-align:middle}
+@keyframes mv{to{transform:translateX(-50%)}}
 
-/* ── 料金 ── */
-.price-wrap{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.campaign{
-  margin-top:2.6rem;border-radius:var(--r);overflow:hidden;
-  border:1px solid rgba(192,86,42,.25);background:var(--autumn-soft);
-  display:grid;grid-template-columns:1fr auto;gap:1.6rem;align-items:center;
-  padding:1.8rem;
-}
-@media(max-width:760px){.campaign{grid-template-columns:1fr}}
-.campaign h3{font-size:1.15rem;font-weight:700;color:var(--autumn);line-height:1.6}
-.campaign p{font-size:.88rem;color:#8a4421;margin-top:.5rem}
-.campaign .amount{font-family:'Figtree',sans-serif;font-size:2rem;font-weight:800;color:var(--autumn);white-space:nowrap;letter-spacing:-.02em}
-.campaign .amount small{font-size:.8rem;font-weight:500;margin-left:.2rem}
+/* problems */
+.probs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.prob{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:32px 28px}
+.prob .no{font-family:'Figtree';font-weight:800;color:var(--warm);font-size:14px;letter-spacing:.1em}
+.prob h3{font-size:19px;line-height:1.6;margin:12px 0 12px;font-weight:700}.prob p{font-size:14.5px;color:var(--mid)}
+@media(max-width:900px){.probs{grid-template-columns:1fr}}
 
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:1.4rem}
-@media(max-width:860px){.plans{grid-template-columns:1fr}}
-.plan{border:1px solid var(--line);border-radius:var(--r);padding:1.9rem 1.7rem;background:var(--bg)}
-.plan.is-rec{border-color:var(--green);background:var(--surface);box-shadow:0 20px 40px -32px rgba(28,92,68,.8)}
-.plan-top{display:flex;align-items:center;justify-content:space-between;gap:.6rem}
-.plan-label{font-family:'Figtree',sans-serif;font-size:.68rem;letter-spacing:.2em;font-weight:600;color:var(--mid)}
-.plan.is-rec .plan-label{color:var(--green)}
-.plan-rec{font-size:.66rem;background:var(--green);color:#fff;padding:.22rem .7rem;border-radius:999px;letter-spacing:.06em}
-.plan-name{font-size:1.05rem;font-weight:600;margin-top:.8rem}
-.plan-num{font-family:'Figtree',sans-serif;font-size:1.9rem;font-weight:800;letter-spacing:-.02em;margin-top:.5rem}
-.plan-num small{font-size:.78rem;font-weight:500;color:var(--mid);margin-left:.15rem}
-.plan ul{list-style:none;margin-top:1.3rem;border-top:1px solid var(--line);padding-top:.4rem}
-.plan li{display:flex;gap:.6rem;font-size:.85rem;color:var(--mid);padding:.52rem 0;align-items:flex-start}
-.plan li::before{content:'';flex:none;width:15px;height:15px;margin-top:.33rem;border-radius:50%;background:rgba(28,92,68,.1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231c5c44' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/9px no-repeat}
-.price-note{font-size:.8rem;color:var(--mid);margin-top:1.6rem}
+/* reasons */
+.reasons{background:var(--paper)}
+.rsn{display:grid;grid-template-columns:120px 1fr 1fr;gap:40px;padding:46px 0;border-top:1px solid var(--line);align-items:start}.rsn:last-child{border-bottom:1px solid var(--line)}
+.rsn .num{font-family:'Figtree';font-weight:800;font-size:72px;line-height:1;color:var(--acc)}
+.rsn h3{font-size:clamp(21px,3vw,27px);line-height:1.55;font-weight:900}.rsn p{color:var(--mid);font-size:15px}
+.rsn .tag{display:inline-block;margin-top:14px;font-size:12px;font-weight:700;background:var(--acc-l);color:var(--acc);padding:4px 12px;border-radius:999px}
+@media(max-width:900px){.rsn{grid-template-columns:1fr;gap:12px;padding:36px 0}.rsn .num{font-size:52px}}
 
-/* ── プロフィール ── */
-.profile{display:grid;grid-template-columns:300px 1fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:start;margin-top:3rem}
-@media(max-width:800px){.profile{grid-template-columns:1fr}}
-.bio{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.8rem 1.7rem}
-.bio-top{display:flex;align-items:center;gap:1rem;padding-bottom:1.3rem;border-bottom:1px solid var(--line)}
-.bio-top img{width:60px;height:60px;border-radius:50%;object-fit:cover;flex:none;border:1px solid var(--line)}
-.bio-top b{display:block;font-size:1.02rem;font-weight:700;line-height:1.4}
-.bio-top span{display:block;font-size:.58rem;font-weight:600;letter-spacing:.2em;color:var(--green);margin-top:.15rem}
-.bio dl{margin-top:.4rem}
-.bio dt{font-size:.56rem;font-weight:600;letter-spacing:.2em;color:var(--mid);padding-top:.95rem}
-.bio dd{font-size:.86rem;padding-bottom:.95rem;border-bottom:1px solid var(--line)}
-.bio dd:last-of-type{border-bottom:0;padding-bottom:0}
-.profile-body p{font-size:.94rem;color:var(--mid)}
-.profile-body p+p{margin-top:1rem}
-.profile-body strong{color:var(--ink);font-weight:600}
-.socials{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
-.social{
-  display:inline-flex;align-items:center;gap:.45rem;
-  border:1px solid var(--line);background:var(--surface);
-  border-radius:999px;padding:.5rem 1.1rem;
-  font-size:.82rem;text-decoration:none;transition:border-color .2s,transform .2s;
-}
-.social:hover{border-color:var(--ink);transform:translateY(-2px)}
+/* works */
+.works{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.wk{background:var(--paper);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+.wk:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(20,19,15,.1)}
+.wk .shot{background:var(--acc-l);padding:26px 26px 0;height:300px;overflow:hidden}
+.wk .shot img{border-radius:16px 16px 0 0;box-shadow:0 10px 24px rgba(20,19,15,.18);width:100%}
+.wk .bd{padding:20px 22px 24px;flex:1;display:flex;flex-direction:column}
+.wk .cat{font-size:12px;color:var(--acc);font-weight:700}.wk h3{font-size:17px;margin:4px 0 8px;font-weight:700}.wk p{font-size:13.5px;color:var(--mid);line-height:1.8;flex:1}
+.wk .go{margin-top:14px;font-size:13px;font-weight:700}
+.wk:nth-child(2) .shot{background:#f3e9ec}.wk:nth-child(3) .shot{background:#2a2420}.wk:nth-child(4) .shot{background:#e4eeeb}
+@media(max-width:1000px){.works{grid-template-columns:1fr 1fr}}@media(max-width:600px){.works{grid-template-columns:1fr}.wk .shot{height:260px}}
+.report{margin-top:26px;display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;background:var(--ink);color:#fff;border-radius:22px;padding:30px 34px}
+.report .big{font-family:'Figtree';font-weight:800;font-size:54px;line-height:1;color:#9fd1b7}.report .big small{font-size:16px;margin-left:4px}
+.report h3{font-size:18px}.report p{font-size:14px;opacity:.75}
+.report .btn{background:#fff;color:var(--ink);height:48px}
+@media(max-width:800px){.report{grid-template-columns:1fr;gap:14px}}
+.note-s{font-size:13px;color:var(--mid);margin-top:18px}
 
-/* ── FAQ ── */
-.faq{margin-top:2.6rem;border-top:1px solid var(--line)}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{
-  cursor:pointer;list-style:none;padding:1.3rem 2.4rem 1.3rem 0;position:relative;
-  font-size:.96rem;font-weight:500;
-}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{
-  content:'';position:absolute;right:.4rem;top:1.65rem;
-  width:9px;height:9px;border-right:1.6px solid var(--mid);border-bottom:1.6px solid var(--mid);
-  transform:rotate(45deg);transition:transform .25s;
-}
-.faq details[open] summary::after{transform:rotate(-135deg)}
-.faq .a{color:var(--mid);font-size:.89rem;padding:0 0 1.4rem}
+/* service */
+.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.svc div{padding:34px 30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}
+.svc .ic{width:44px;height:44px;border-radius:12px;background:var(--acc-l);color:var(--acc);display:grid;place-items:center;font-family:'Figtree';font-weight:800;font-size:15px;margin-bottom:18px}
+.svc h3{font-size:17px;margin-bottom:8px}.svc p{font-size:14px;color:var(--mid)}
+@media(max-width:900px){.svc{grid-template-columns:1fr}}
 
-/* ── CTA ── */
-.cta{background:var(--green);color:#fff;padding:var(--pad) 0;text-align:center}
-.cta h2{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;line-height:1.55}
-.cta p{color:rgba(255,255,255,.76);margin-top:1.1rem;font-size:.94rem}
-.cta .btn-fill{background:#fff;color:var(--green);box-shadow:0 10px 26px -14px rgba(0,0,0,.6)}
-.cta .btn-fill:hover{background:#f3f1ec}
-.cta .btn-ghost{background:transparent;border-color:rgba(255,255,255,.4);color:#fff}
-.cta .btn-ghost:hover{border-color:#fff}
-.cta-actions{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;margin-top:2.2rem}
-.cta-mail{margin-top:1.8rem;font-size:.82rem;color:rgba(255,255,255,.64)}
-.cta-mail a{color:#fff}
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;counter-reset:f}
+.fl{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px 20px}
+.fl::before{counter-increment:f;content:'STEP 0' counter(f);font-family:'Figtree';font-weight:800;font-size:12px;letter-spacing:.12em;color:var(--acc)}
+.fl h3{font-size:17px;margin:8px 0 6px}.fl p{font-size:13.5px;color:var(--mid);line-height:1.8}
+.fl.free{border:2px solid var(--acc);background:var(--acc-l)}.fl .fr{position:absolute;top:-12px;right:16px;background:var(--acc);color:#fff;font-size:11.5px;font-weight:700;padding:3px 12px;border-radius:999px}
+@media(max-width:1000px){.flow{grid-template-columns:1fr 1fr}}@media(max-width:600px){.flow{grid-template-columns:1fr}}
 
-/* ── footer ── */
-footer{padding:2.6rem 0;font-size:.78rem;color:var(--mid)}
-.foot-in{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}
-.foot-in a{text-decoration:none}
+/* price */
+.price-sec{background:var(--paper)}
+.camp{display:flex;gap:20px;align-items:center;justify-content:space-between;background:var(--warm-l);border:1.5px solid #efc9b4;border-radius:20px;padding:26px 30px;margin-bottom:28px;flex-wrap:wrap}
+.camp b{color:var(--warm);font-size:13px;letter-spacing:.06em}.camp h3{font-size:20px;margin-top:4px}.camp p{font-size:13.5px;color:var(--mid)}
+.camp .yen{font-family:'Figtree';font-weight:800;font-size:46px;color:var(--warm);line-height:1}.camp .yen small{font-size:16px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.plan{border:1px solid var(--line);border-radius:22px;padding:34px 30px;background:var(--bg);position:relative}
+.plan.rec{border:2px solid var(--acc);background:#fff;box-shadow:0 20px 40px rgba(28,92,68,.1)}
+.plan .pop{position:absolute;top:-13px;left:30px;background:var(--acc);color:#fff;font-size:12px;font-weight:700;padding:3px 14px;border-radius:999px}
+.plan .en{color:var(--mid)}.plan h3{font-size:19px;margin:6px 0 14px}
+.plan .yen{font-family:'Figtree';font-weight:800;font-size:40px;line-height:1}.plan .yen small{font-size:15px;margin-left:2px}
+.plan ul{list-style:none;margin-top:22px;border-top:1px solid var(--line);padding-top:16px}.plan li{font-size:14px;padding:6px 0 6px 24px;position:relative}.plan li::before{content:'';position:absolute;left:2px;top:15px;width:12px;height:6px;border-left:2px solid var(--acc);border-bottom:2px solid var(--acc);transform:rotate(-45deg)}
+@media(max-width:900px){.plans{grid-template-columns:1fr}}
+.pnote{font-size:13px;color:var(--mid);margin-top:20px;line-height:1.9}
 
-/* ── スクロール表示 ── */
-.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
-.rv.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){
-  .rv{opacity:1;transform:none;transition:none}
-  .hero .shot{animation:none}
-  html{scroll-behavior:auto}
-}
+/* about */
+.about{display:grid;grid-template-columns:320px 1fr;gap:60px;align-items:start}
+.avatar{aspect-ratio:1/1;border-radius:28px;background:linear-gradient(135deg,#1c5c44,#5f9a7d);color:#fff;display:grid;place-items:center;font-family:'Figtree';font-weight:800;font-size:48px;letter-spacing:.1em}
+.prof-t{margin-top:18px}.prof-t dt{font-family:'Figtree';font-size:11px;letter-spacing:.14em;color:var(--mid);margin-top:12px}.prof-t dd{font-size:14.5px;font-weight:500}
+.about h3{font-size:clamp(22px,3.4vw,30px);line-height:1.55;font-weight:900;margin-bottom:22px}
+.about p{color:var(--mid);margin-bottom:16px}
+.creds{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.creds div{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px}.creds b{display:block;font-size:22px;font-weight:900}.creds span{font-size:12.5px;color:var(--mid)}
+.socials{display:flex;gap:10px;margin-top:22px}.socials a{border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:13px;font-weight:700;background:#fff}
+@media(max-width:900px){.about{grid-template-columns:1fr;gap:30px}.about .side{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:center}.avatar{font-size:26px;border-radius:20px}.creds{grid-template-columns:1fr 1fr 1fr}.creds b{font-size:17px}}
+
+/* faq */
+.faq details{border-bottom:1px solid var(--line);padding:22px 0}.faq details:first-child{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;font-weight:700;font-size:16px;display:flex;gap:14px;align-items:flex-start}.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:'Q';font-family:'Figtree';font-weight:800;color:var(--acc);font-size:18px;line-height:1.5}
+.faq summary::after{content:'+';margin-left:auto;font-family:'Figtree';font-size:22px;line-height:1;color:var(--mid)}.faq details[open] summary::after{content:'−'}
+.faq .a{color:var(--mid);font-size:14.5px;margin:12px 0 0 30px}
+
+/* cta */
+.cta{background:var(--acc);color:#fff;border-radius:32px;margin:0 var(--gut) var(--pad);padding:clamp(56px,8vw,96px) var(--gut);text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.06);right:-120px;top:-160px}
+.cta .en{color:#9fd1b7}.cta h2{font-size:clamp(26px,4.4vw,42px);line-height:1.5;font-weight:900;margin:12px 0 18px}.cta p{opacity:.85}
+.cta .acts{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.cta .btn-fill{background:#fff;color:var(--acc)}.cta .btn-line{border-color:#fff;color:#fff}.cta .btn-line:hover{background:#fff;color:var(--acc)}
+.cta .mail{font-size:13px;opacity:.75;margin-top:22px}
+footer{padding:40px 0 60px;font-size:13px;color:var(--mid)}footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.strip .row{animation:none}}
 </style>
-<link rel="canonical" href="https://ramuram.drca-business.workers.dev/">
 <script data-canonical-block>
 /* 旧URL(github.io)でアクセスされた場合のみ、新URLへ転送する */
 (function(){try{if(location.hostname.indexOf('github.io')>-1){location.replace('https://ramuram.drca-business.workers.dev/'+location.search+location.hash);}}catch(e){}})();
@@ -365,387 +175,169 @@ footer{padding:2.6rem 0;font-size:.78rem;color:var(--mid)}
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "ラムラム（came dream）",
-  "description": "個人事業主・中小企業さま向けのホームページ制作。スマートフォンで伝わる1ページのサイトを、3万円から。",
+  "name": "ラムラム",
+  "description": "京都の個人店・小規模事業者さま向けのホームページ制作。ご依頼前に見本を無料で作成。1ページのサイトを3万円から。",
   "url": "https://ramuram.drca-business.workers.dev/",
-  "areaServed": [
-    {
-      "@type": "AdministrativeArea",
-      "name": "京都府"
-    },
-    {
-      "@type": "Country",
-      "name": "日本"
-    }
-  ],
+  "areaServed": [{"@type": "AdministrativeArea","name": "京都府"},{"@type": "Country","name": "日本"}],
   "serviceType": "ホームページ制作",
   "priceRange": "¥¥",
   "knowsLanguage": "ja",
-  "founder": {
-    "@type": "Person",
-    "name": "ラムラム"
-  },
-  "makesOffer": [
-    {
-      "@type": "Offer",
-      "name": "1ページのホームページ制作",
-      "priceCurrency": "JPY",
-      "price": "30000"
-    },
-    {
-      "@type": "Offer",
-      "name": "スマートフォン表示の診断",
-      "priceCurrency": "JPY",
-      "price": "3000"
-    }
-  ]
+  "founder": {"@type": "Person","name": "ラムラム"},
+  "makesOffer": [{"@type": "Offer","name": "1ページのホームページ制作","priceCurrency": "JPY","price": "30000"}]
 }
 </script>
 </head>
 <body>
 
-<nav class="nav">
-  <a class="nav-logo" href="#top">RAMURAM<span>KYOTO</span></a>
-  <ul class="nav-menu">
-    <li><a href="#works">制作事例</a></li>
-    <li><a href="#can">できること</a></li>
-    <li><a href="#flow">ご依頼の流れ</a></li>
-    <li><a href="#price">料金</a></li>
-  </ul>
-  <a class="nav-cta" href="#contact">相談する</a>
-</nav>
+<header class="hd"><div class="wrap">
+  <a class="logo" href="#">RAMURAM<small>KYOTO</small></a>
+  <nav><a href="#reason">選ばれる理由</a><a href="#works">制作事例</a><a href="#flow">流れ</a><a href="#price">料金</a><a href="#about">プロフィール</a></nav>
+  <a class="btn btn-fill" href="#contact"><span class="pc">無料で</span>見本をつくる</a>
+</div></header>
 
-<!-- HERO -->
-<header class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="badge"><i></i>オータムキャンペーン実施中 ／ 先着3社様</span>
-      <h1>お店のことを、<br><span class="hl">スマホで</span>ちゃんと<br>伝わるかたちに。</h1>
-      <p class="hero-body">京都で、個人事業主と中小企業さまのホームページを作っています。見た目だけでなく、営業時間や予約までたどり着ける導線まで設計します。</p>
-      <div class="hero-actions">
-        <a class="btn btn-fill" href="#contact">無料で相談する</a>
-        <a class="btn btn-ghost" href="#works">制作事例を見る</a>
-      </div>
-      <dl class="hero-meta">
-        <div><dt>Base</dt><dd>京都・オンライン全国対応</dd></div>
-        <div><dt>Delivery</dt><dd>最短2週間</dd></div>
-        <div><dt>Support</dt><dd>納品後の修正あり</dd></div>
-      </dl>
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="badge">キャンペーン中｜先着3社・11/30まで</span>
+    <h1>決める前に、<br><em>あなたのお店の</em><br>ページを見てください。</h1>
+    <p class="lead">京都で、個人店と小規模事業者さまのホームページを作っています。ご依頼の前に、お店のページの見本を無料で1枚お作りします。見てから決めてください。</p>
+    <div class="acts"><a class="btn btn-fill" href="#contact">無料で見本をつくる <span class="ar">→</span></a><a class="btn btn-line" href="#works">制作事例を見る</a></div>
+    <div class="facts">
+      <div><b>0<small>円</small></b>見本づくり・お見積り</div>
+      <div><b>3<small>万円〜</small></b>1ページのサイト</div>
+      <div><b>2<small>週間〜</small></b>公開までの目安</div>
     </div>
-    <div>
-      <div class="shot">
-        <div class="shot-bar"><s></s><s></s><s></s><em>lune-nail.jp</em></div>
-        <div class="shot-view"><iframe src="works/lune-nail/" loading="lazy" tabindex="-1" scrolling="no" title="制作サンプル Lune Nail"></iframe></div>
-      </div>
+    <a class="me" href="#about"><img src="assets/profile/ramuram.jpg" alt="ラムラム"><span><b>元銀行員のラムラムが、最後まで担当します</b>京都市／オンライン全国対応</span></a>
+  </div>
+  <div class="phones" aria-hidden="true">
+    <div class="phone p1"><img src="works/lune/thumb.jpg" alt=""></div>
+    <div class="phone p2"><img src="works/komichi/thumb.jpg" alt=""></div>
+    <div class="phone p3"><img src="works/akari/thumb.jpg" alt=""></div>
+    <div class="cap">制作サンプル（架空のお店）</div>
+  </div>
+</div></section>
+
+<section class="kyoto"><div class="kyoto-in wrap">
+  <span class="en">Local</span>
+  <h2>京都の、小さなお店の<br>いちばん近くで。</h2>
+  <p>路地の喫茶店、ひとりで営む美容室、看板を出さない整体院。京都には、知っている人だけが通う良いお店がたくさんあります。ラムラムは、そんなお店が「はじめての人」にも見つけてもらえるページを作っています。市内なら、お店に伺ってお話しします。</p>
+</div></section>
+<div class="nums"><div class="wrap">
+  <div><b>21<small>件</small></b><span>これまでにお作りした<br>お店のページの見本</span></div>
+  <div><b>9<small>サイト</small></b><span>スマホで1件ずつ確かめた<br>京都の個人店のサイト</span></div>
+  <div><b>7<small>年</small></b><span>銀行勤務<br>（うち6年は事業性融資）</span></div>
+  <div><b>1<small>人</small></b><span>相談から公開後まで<br>同じ人間が担当</span></div>
+</div></div>
+
+<div class="strip" aria-hidden="true"><div class="row">
+  <span>カフェ・喫茶</span><span>和菓子・パン</span><span>ネイルサロン</span><span>美容室</span><span>エステ</span><span>整体・治療院</span><span>居酒屋・小料理</span><span>ビストロ</span><span>教室・スクール</span>
+  <span>カフェ・喫茶</span><span>和菓子・パン</span><span>ネイルサロン</span><span>美容室</span><span>エステ</span><span>整体・治療院</span><span>居酒屋・小料理</span><span>ビストロ</span><span>教室・スクール</span>
+</div></div>
+
+<section class="sec"><div class="wrap">
+  <div class="sec-h rv"><span class="en">Problem</span><h2>こんな状態に、<br>なっていませんか。</h2></div>
+  <div class="probs">
+    <div class="prob rv"><div class="no">01</div><h3>店名で検索しても、<br>グルメサイトしか出てこない</h3><p>営業時間や定休日を確かめるのに手間がかかると、その時点で別のお店に流れてしまいます。</p></div>
+    <div class="prob rv"><div class="no">02</div><h3>お知らせが、<br>SNSの投稿に埋もれている</h3><p>臨時休業やメニューの変更が流れていき、知りたい人が見つけられません。同じ質問のDMが何度も届きます。</p></div>
+    <div class="prob rv"><div class="no">03</div><h3>サイトはあるけれど、<br>スマホで読みづらい</h3><p>文字が小さい、電話番号を押しても発信できない。パソコンでは問題なくても、スマホで崩れていることがあります。</p></div>
+  </div>
+</div></section>
+
+<section class="sec reasons" id="reason"><div class="wrap">
+  <div class="sec-h rv"><span class="en">Reason</span><h2>ラムラムが選ばれる、3つの理由</h2></div>
+  <div class="rsn rv"><div class="num">01</div><h3>ご依頼の前に、<br>見本を無料で作ります。</h3><div><p>お店のInstagramや公開されている情報をもとに、お店のページの見本を先に1枚お作りします。どんなページになるかを見てから、頼むかどうかを決めていただけます。</p><span class="tag">見本づくりは無料・見送りもOK</span></div></div>
+  <div class="rsn rv"><div class="num">02</div><h3>元銀行員が、<br>「来てもらう流れ」から設計します。</h3><div><p>銀行で事業性融資を担当し、たくさんのお店の数字を見てきました。見た目より先に、「誰に、何をしてほしいページか」を決めます。電話・予約・地図までの流れをつくってから、デザインに入ります。</p><span class="tag">電話・予約・来店までを設計</span></div></div>
+  <div class="rsn rv"><div class="num">03</div><h3>相談から公開後まで、<br>ひとりで担当します。</h3><div><p>窓口と制作が同じ人間なので、途中で話が伝わらなくなることがありません。公開後の営業時間やお知らせの変更も、ご連絡いただければ1〜2営業日で反映します。</p><span class="tag">平日21時まで・土日も返信</span></div></div>
+</div></section>
+
+<section class="sec" id="works"><div class="wrap">
+  <div class="sec-h rv"><span class="en">Works</span><h2>制作事例</h2><p>業種ごとに、見せ方を変えています。いずれも架空のお店を想定したサンプルで、実際に動くページとしてご覧いただけます。写真は素材写真です。</p></div>
+  <div class="works">
+    <a class="wk rv" href="works/komichi/" target="_blank" rel="noopener"><div class="shot"><img src="works/komichi/thumb.jpg" alt="喫茶こみち"></div><div class="bd"><span class="cat">カフェ・喫茶</span><h3>喫茶こみち</h3><p>開いてすぐ「今日やっているか」が分かる構成に。焙煎のこだわりと、豆の量り売りを写真で見せます。</p><span class="go">ページを見る →</span></div></a>
+    <a class="wk rv" href="works/lune/" target="_blank" rel="noopener"><div class="shot"><img src="works/lune/thumb.jpg" alt="Lune Nail"></div><div class="bd"><span class="cat">ネイルサロン</span><h3>Lune Nail</h3><p>デザインを種類ごとに並べ、定額コースと予約の流れを1ページに。スマホでは予約ボタンが常に下に出ます。</p><span class="go">ページを見る →</span></div></a>
+    <a class="wk rv" href="works/akari/" target="_blank" rel="noopener"><div class="shot"><img src="works/akari/thumb.jpg" alt="おばんざい 灯"></div><div class="bd"><span class="cat">居酒屋・小料理</span><h3>おばんざい 灯</h3><p>縦書きのお品書きと、昼呑み・夜の営業日がひと目で分かる表。お店の空気が伝わる暗めのトーンで。</p><span class="go">ページを見る →</span></div></a>
+    <a class="wk rv" href="works/asagino/" target="_blank" rel="noopener"><div class="shot"><img src="works/asagino/thumb.jpg" alt="あさぎ野整体院"></div><div class="bd"><span class="cat">整体・治療院</span><h3>あさぎ野整体院</h3><p>症状ごとの案内、院長の紹介、初めての方の流れとよくある質問。不安を先回りして答える構成です。</p><span class="go">ページを見る →</span></div></a>
+  </div>
+  <div class="report rv"><div class="big">9<small>サイト</small></div><div><h3>京都の個人店のサイトを、スマホで1件ずつ確かめました</h3><p>小さすぎる文字、押しても発信されない電話番号、無料プランの広告。調べた記録を公開しています（お店の名前は伏せています）。</p></div><a class="btn" href="works/report/" target="_blank" rel="noopener">調査記録を読む</a></div>
+  <p class="note-s">「うちの業種だとどうなるか見たい」という場合は、ご相談の際にお知らせください。お店に合わせた見本をお作りします。</p>
+</div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="sec-h rv"><span class="en">Service</span><h2>できること</h2></div>
+  <div class="svc rv">
+    <div><div class="ic">01</div><h3>スマホを基準に作ります</h3><p>お店のページは、ほとんどがスマホで見られます。スマホの画面で設計してから、パソコン表示を整えます。</p></div>
+    <div><div class="ic">02</div><h3>文章も一緒に考えます</h3><p>「何を書けばいいか分からない」が一番多いご相談です。お話を伺って、原稿の下書きまでこちらで用意します。</p></div>
+    <div><div class="ic">03</div><h3>検索で見つかるようにします</h3><p>ページの題名や説明文、Googleマップとのつながりまで整えます。作っただけで終わらせません。</p></div>
+    <div><div class="ic">04</div><h3>いまの予約方法とつなげます</h3><p>ホットペッパーやLINE、予約サイトをお使いなら、そのままボタンでつなげます。乗り換えは不要です。</p></div>
+    <div><div class="ic">05</div><h3>公開後の更新も任せられます</h3><p>営業時間やお知らせの変更は、ご連絡いただければ反映します。月額2,000円の保守プランをご用意しています。</p></div>
+    <div><div class="ic">06</div><h3>京都なら直接伺います</h3><p>市内であれば、ご希望に応じてお店で打ち合わせができます。オンラインのみでも問題ありません。</p></div>
+  </div>
+</div></section>
+
+<section class="sec" id="flow" style="padding-top:0"><div class="wrap">
+  <div class="sec-h rv"><span class="en">Flow</span><h2>ご依頼の流れ</h2><p>見本づくりとお見積りまでは無料です。見本を見て、見送っていただいても構いません。</p></div>
+  <div class="flow">
+    <div class="fl rv"><h3>ご相談</h3><p>メールかInstagramでご連絡ください。お店の名前だけでも大丈夫です。</p></div>
+    <div class="fl free rv"><span class="fr">無料</span><h3>見本づくり</h3><p>公開されている情報から、お店のページの見本を1枚お作りします。</p></div>
+    <div class="fl free rv"><span class="fr">無料</span><h3>お見積り</h3><p>見本を見ながら、載せる内容と金額・納期を決めます。</p></div>
+    <div class="fl rv"><h3>制作</h3><p>写真と原稿を整えて仕上げます。途中で一度ご確認いただきます。</p></div>
+    <div class="fl rv"><h3>公開・その後</h3><p>公開作業まで行います。更新のご依頼方法をお伝えして完了です。</p></div>
+  </div>
+</div></section>
+
+<section class="sec price-sec" id="price"><div class="wrap">
+  <div class="sec-h rv"><span class="en">Price</span><h2>料金</h2><p>表示はすべて税込です。内容が決まっていない段階でも、おおよその金額をお伝えできます。</p></div>
+  <div class="camp rv"><div><b>オータムキャンペーン｜先着3社様</b><h3>1ページのホームページを、特別価格で。</h3><p>2026年11月30日までにお申し込みの方に限ります。内容は通常のLIGHTプランと同じです。</p></div><div class="yen">¥30,000<small>〜</small></div></div>
+  <div class="plans">
+    <div class="plan rv"><span class="en">Light</span><h3>1ページのサイト</h3><div class="yen">¥80,000<small>〜</small></div><ul><li>1ページ構成</li><li>スマホ・パソコン対応</li><li>原稿の下書き作成</li><li>修正2回まで／納期2〜3週間</li></ul></div>
+    <div class="plan rec rv"><span class="pop">いちばん多いご依頼</span><span class="en">Standard</span><h3>複数ページのサイト</h3><div class="yen">¥150,000<small>〜</small></div><ul><li>3〜5ページ構成</li><li>スマホ・パソコン対応</li><li>原稿の下書き作成</li><li>お知らせの更新機能</li><li>修正3回まで／納期3〜4週間</li></ul></div>
+    <div class="plan rv"><span class="en">Custom</span><h3>ご相談</h3><div class="yen" style="font-size:30px">要相談</div><ul><li>予約システムの連携</li><li>今あるサイトの作り直し</li><li>ページ数・仕様は自由</li><li>ご予算に合わせて調整</li></ul></div>
+  </div>
+  <p class="pnote">※ 独自ドメイン・サーバー費用は別途（年間およそ2,000〜15,000円）。取得と設定の代行も承ります。<br>※ 公開後の更新は、月額2,000円の保守プラン（月3回まで）または単発1回3,000円。加入は任意です。</p>
+</div></section>
+
+<section class="sec" id="about"><div class="wrap">
+  <div class="sec-h rv"><span class="en">Profile</span><h2>作っている人</h2></div>
+  <div class="about">
+    <div class="side rv"><img class="avatar" src="assets/profile/ramuram.jpg" alt="ラムラム（イラスト）"><dl class="prof-t"><dt>NAME</dt><dd>ラムラム</dd><dt>BASE</dt><dd>京都市／オンライン全国対応</dd><dt>CONTACT</dt><dd>平日21時まで・土日も返信</dd></dl></div>
+    <div class="rv">
+      <h3>お店の「数字」を見てきた人間が、<br>ホームページを作っています。</h3>
+      <p>銀行に7年勤め、そのうち6年は法人と個人事業主の事業性融資を担当しました。創業の相談から資金繰りまで、たくさんのお店の計画書と数字を見てきました。その後は、業務効率化ツールの導入支援をしています。</p>
+      <p>うまくいくお店は、お客さんが迷わずに来られる仕組みを持っています。だから、見た目を整える前に「このページを見た人に、何をしてほしいか」を先に決めます。</p>
+      <p>ひとりでやっているので、窓口から制作、公開後の更新まで同じ人間が担当します。「こんなこと聞いていいのかな」という内容でも、気にせずどうぞ。</p>
+      <div class="creds"><div><b>7年</b><span>銀行勤務</span></div><div><b>6年</b><span>事業性融資の担当</span></div><div><b>京都</b><span>市内は訪問OK</span></div></div>
+      <div class="socials"><a href="https://note.com/cc_fukugyo" target="_blank" rel="noopener">note</a><a href="https://x.com/ramuram_web" target="_blank" rel="noopener">X</a><a href="https://www.instagram.com/ramuram.cc/" target="_blank" rel="noopener">Instagram</a></div>
     </div>
   </div>
-</header>
+</div></section>
 
-<!-- 困りごと -->
-<section class="pains">
-  <div class="wrap">
-    <span class="eyebrow">Problem</span>
-    <h2 class="title">こんな状態になっていませんか。</h2>
-    <div class="pain-grid">
-      <div class="pain rv">
-        <span class="pain-num">01</span>
-        <b>店名で検索しても、<br>食べログしか出てこない</b>
-        <p>お店の情報が他社のサイトに預けっぱなしになっている状態です。営業時間や定休日を調べるのに手間がかかると、その時点で離脱されます。</p>
-      </div>
-      <div class="pain rv">
-        <span class="pain-num">02</span>
-        <b>SNSはあるが、<br>過去の投稿に埋もれている</b>
-        <p>定休日やメニューの変更がタイムラインに流れていき、見たい人が見つけられません。受け止める場所がないまま発信だけが続いています。</p>
-      </div>
-      <div class="pain rv">
-        <span class="pain-num">03</span>
-        <b>サイトはあるが、<br>スマホで読みづらい</b>
-        <p>文字が小さい、拡大できない、電話番号を押しても発信できない。パソコンでは問題なくても、スマホで見ると崩れていることがあります。</p>
-      </div>
-    </div>
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="sec-h rv"><span class="en">FAQ</span><h2>よくあるご質問</h2></div>
+  <div class="faq rv">
+    <details><summary>本当に、見本は無料で作ってもらえるのですか。</summary><div class="a">はい。公開されている情報をもとに、お店のページの見本を1枚お作りします。見本を見て見送っていただいても、費用は一切かかりません。</div></details>
+    <details><summary>ホームページを作ったことがありません。何を準備すればいいですか。</summary><div class="a">何もなくて大丈夫です。お店の写真と、伝えたいことを口頭でお話しいただければ、こちらで構成と原稿の下書きを作ります。写真がない場合の進め方もご相談ください。</div></details>
+    <details><summary>今あるサイトを作り直すこともできますか。</summary><div class="a">できます。無料ツールで作ったページや、更新が止まっているサイトの作り直しもお受けしています。今のページを拝見したうえで、直すべき点をお伝えします。</div></details>
+    <details><summary>公開したあとの更新はどうなりますか。</summary><div class="a">営業時間やお知らせの変更は、メールかLINEでご連絡いただければ、1〜2営業日で反映します。月額2,000円の保守プラン（月3回まで）か、単発1回3,000円でお受けしています。</div></details>
+    <details><summary>打ち合わせは対面が必要ですか。</summary><div class="a">オンラインのみでも問題ありません。京都市内であれば、ご希望に応じてお店に伺うこともできます。</div></details>
+    <details><summary>キャンペーンの枠が埋まったらどうなりますか。</summary><div class="a">通常価格でのご案内になります。残り枠の状況は、ご相談いただいた時点でお伝えします。</div></details>
   </div>
-</section>
+</div></section>
 
-<!-- 制作事例 -->
-<section class="sec" id="works">
-  <div class="wrap">
-    <span class="eyebrow">Works</span>
-    <h2 class="title">制作事例</h2>
-    <p class="lead">実際に動くページとして公開しています。クリックすると、そのままご覧いただけます。はじめの1件は実店舗のサイトを調べた記録で、それ以降は架空の店舗を想定したサンプルです。サンプルの写真はフリー素材を使っています。実際の制作ではお店の写真をお預かりします。</p>
-
-    <div class="work rv">
-      <div class="work-shot shot">
-        <div class="shot-bar"><s></s><s></s><s></s><em>works/report</em></div>
-        <div class="shot-view"><iframe src="works/report/" loading="lazy" tabindex="-1" scrolling="no" title="京都の個人店9サイトの調査記録"></iframe></div>
-      </div>
-      <div>
-        <div class="work-tagrow">
-          <span class="tag is-real">実店舗の調査</span>
-          <span class="tag">9サイト</span>
-          <span class="tag">実機検証</span>
-        </div>
-        <h3>個人店のサイト9件を、スマホで1件ずつ開いて確認しました</h3>
-        <p>個人店のホームページを iPhone と同じ幅で実際に開き、何が起きているかを記録しました。無料プランの広告、10pxの文字、押しても発信されない電話番号。9件のうち技術的に問題がなかったのは2件でした。お店の名前は伏せています。</p>
-        <a class="work-link" href="works/report/" target="_blank" rel="noopener">調査記録を読む →</a>
-      </div>
-    </div>
-
-    <div class="work alt rv">
-      <div class="work-shot shot">
-        <div class="shot-bar"><s></s><s></s><s></s><em>komichi-coffee.jp</em></div>
-        <div class="shot-view"><iframe src="works/komichi-cafe/" loading="lazy" tabindex="-1" scrolling="no" title="喫茶こみち サンプル"></iframe></div>
-      </div>
-      <div>
-        <div class="work-tagrow">
-          <span class="tag is-sample">サンプル制作</span>
-          <span class="tag">喫茶店・カフェ</span>
-          <span class="tag">1ページ</span>
-        </div>
-        <h3>喫茶こみち ／ 一乗寺の自家焙煎コーヒー</h3>
-        <p>「営業時間がすぐ分からない」を解消することを第一に設計しました。開いてすぐ本日の営業時間が出て、おしながきと定休日、行き方まで1ページで完結します。電話番号はタップで発信できます。</p>
-        <a class="work-link" href="works/komichi-cafe/" target="_blank" rel="noopener">サンプルを開く →</a>
-      </div>
-    </div>
-
-    <div class="work rv">
-      <div class="work-shot shot">
-        <div class="shot-bar"><s></s><s></s><s></s><em>lino-hair.jp</em></div>
-        <div class="shot-view"><iframe src="works/lino-hair/" loading="lazy" tabindex="-1" scrolling="no" title="hair salon LINO サンプル"></iframe></div>
-      </div>
-      <div>
-        <div class="work-tagrow">
-          <span class="tag is-sample">サンプル制作</span>
-          <span class="tag">美容室</span>
-          <span class="tag">1ページ</span>
-        </div>
-        <h3>hair salon LINO ／ 西院のマンツーマン美容室</h3>
-        <p>予約サイトに頼らず、自分のページから予約が入る形を想定しました。料金を「〜から」で濁さず全メニュー掲載し、最終受付時間と担当者まで明記しています。初めての方が迷う要素を減らす構成です。</p>
-        <a class="work-link" href="works/lino-hair/" target="_blank" rel="noopener">サンプルを開く →</a>
-      </div>
-    </div>
-
-    <div class="work alt rv">
-      <div class="work-shot shot">
-        <div class="shot-bar"><s></s><s></s><s></s><em>lune-nail.jp</em></div>
-        <div class="shot-view"><iframe src="works/lune-nail/" loading="lazy" tabindex="-1" scrolling="no" title="Lune Nail サンプル"></iframe></div>
-      </div>
-      <div>
-        <div class="work-tagrow">
-          <span class="tag is-sample">サンプル制作</span>
-          <span class="tag">ネイルサロン</span>
-          <span class="tag">1ページ</span>
-        </div>
-        <h3>Lune Nail ／ プライベートネイルサロン</h3>
-        <p>落ち着いた雰囲気のサロンを想定しました。メニューと料金、ご来店の流れ、予約までを1ページにまとめ、スマホで上から読むだけで判断できる構成にしています。</p>
-        <a class="work-link" href="works/lune-nail/" target="_blank" rel="noopener">サンプルを開く →</a>
-      </div>
-    </div>
-
-    <p class="work-soon rv">「うちの業種だとどうなるか見たい」というご要望があれば、ご相談の際にお知らせください。似た業態のサンプルをお作りしてからご提案します。</p>
-  </div>
-</section>
-
-<!-- できること -->
-<section class="sec" id="can">
-  <div class="wrap">
-    <span class="eyebrow">Service</span>
-    <h2 class="title">できること</h2>
-    <p class="lead">「何から決めたらいいか分からない」という状態からご相談いただけます。構成の整理からお手伝いします。</p>
-    <div class="cans">
-      <div class="can rv">
-        <div class="can-ico"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2.5"/><line x1="10.5" y1="18.5" x2="13.5" y2="18.5"/></svg></div>
-        <b>スマホを基準に作ります</b>
-        <p>お店のサイトは、ほとんどがスマホで見られます。まずスマホの画面で設計し、そのあとパソコン表示を整えます。</p>
-      </div>
-      <div class="can rv">
-        <div class="can-ico"><svg viewBox="0 0 24 24"><path d="M3 12h4l2.5 6 5-14L17 12h4"/></svg></div>
-        <b>来てほしい行動まで導きます</b>
-        <p>見て終わりでは意味がありません。電話・予約・地図・問い合わせのどこに進んでほしいかを決めてから作ります。</p>
-      </div>
-      <div class="can rv">
-        <div class="can-ico"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg></div>
-        <b>文章も一緒に考えます</b>
-        <p>「何を書けばいいか分からない」が一番多いご相談です。お話を伺って、こちらで原稿の下書きまで用意します。</p>
-      </div>
-      <div class="can rv">
-        <div class="can-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg></div>
-        <b>検索で見つかる状態にします</b>
-        <p>ページの題名や説明文、Googleマップとのつながりまで整えます。作っただけで終わらせません。</p>
-      </div>
-      <div class="can rv">
-        <div class="can-ico"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div>
-        <b>公開後の更新も任せられます</b>
-        <p>営業時間やお知らせの変更は、ご連絡いただければ1〜2営業日で反映します。月額2,000円の保守プランをご用意しています。</p>
-      </div>
-      <div class="can rv">
-        <div class="can-ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-7.5-10A7.5 7.5 0 0 1 12 3.5 7.5 7.5 0 0 1 19.5 11c0 5.4-7.5 10-7.5 10z"/><circle cx="12" cy="11" r="2.4"/></svg></div>
-        <b>京都なら直接お伺いします</b>
-        <p>市内であれば、ご希望に応じてお店で打ち合わせができます。オンラインのみでも問題ありません。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 流れ -->
-<section class="sec" id="flow">
-  <div class="wrap">
-    <span class="eyebrow">Flow</span>
-    <h2 class="title">ご依頼の流れ</h2>
-    <p class="lead">ご相談の時点で費用はかかりません。話を聞いたうえで見送っていただいて構いません。</p>
-    <div class="flow">
-      <div class="step rv"><b>ご相談</b><p>メールかSNSでご連絡ください。現状のお困りごとを伺います。</p></div>
-      <div class="step rv"><b>お見積り</b><p>ページ数と内容を決めて、金額と納期をお出しします。ここまで無料です。</p></div>
-      <div class="step rv"><b>制作</b><p>途中で一度ご確認いただきます。認識のずれを早い段階で直します。</p></div>
-      <div class="step rv"><b>公開・お渡し</b><p>公開作業まで行います。その後の更新のご依頼方法をお伝えして完了です。</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 料金 -->
-<section class="sec price-wrap" id="price">
-  <div class="wrap">
-    <span class="eyebrow">Price</span>
-    <h2 class="title">料金</h2>
-    <p class="lead">表示はすべて税込です。内容が決まっていない段階でも、おおよその目安をお伝えできます。</p>
-
-    <div class="campaign rv">
-      <div>
-        <h3>オータムキャンペーン｜先着3社様</h3>
-        <p>2026年11月30日までにお申し込みいただいた方に限り、1ページのホームページを特別価格で制作します。内容は通常プランと同じです。</p>
-      </div>
-      <div class="amount">¥30,000<small>〜</small></div>
-    </div>
-
-    <div class="plans">
-      <div class="plan rv">
-        <div class="plan-top"><span class="plan-label">LIGHT</span></div>
-        <div class="plan-name">1ページサイト</div>
-        <div class="plan-num">¥80,000<small>〜</small></div>
-        <ul>
-          <li>1ページ構成</li>
-          <li>スマホ・パソコン対応</li>
-          <li>原稿の下書き作成</li>
-          <li>修正2回まで／納期2〜3週間</li>
-        </ul>
-      </div>
-      <div class="plan is-rec rv">
-        <div class="plan-top"><span class="plan-label">STANDARD</span><span class="plan-rec">いちばん多い</span></div>
-        <div class="plan-name">複数ページサイト</div>
-        <div class="plan-num">¥150,000<small>〜</small></div>
-        <ul>
-          <li>3〜5ページ構成</li>
-          <li>スマホ・パソコン対応</li>
-          <li>原稿の下書き作成</li>
-          <li>お知らせの更新機能</li>
-          <li>修正3回まで／納期3〜4週間</li>
-        </ul>
-      </div>
-      <div class="plan rv">
-        <div class="plan-top"><span class="plan-label">CUSTOM</span></div>
-        <div class="plan-name">ご相談</div>
-        <div class="plan-num">要相談</div>
-        <ul>
-          <li>予約システムの連携</li>
-          <li>既存サイトの作り直し</li>
-          <li>ページ数・仕様は自由</li>
-          <li>ご予算に合わせて調整</li>
-        </ul>
-      </div>
-    </div>
-    <p class="price-note">※ 独自ドメイン・サーバー費用は別途（年間およそ2,000〜15,000円）。取得と設定の代行も承ります。<br>※ 公開後の更新は、月額2,000円の保守プラン（月3回まで）または単発1回3,000円でお受けしています。加入は任意です。</p>
-  </div>
-</section>
-
-<!-- プロフィール -->
-<section class="sec" id="about">
-  <div class="wrap">
-    <span class="eyebrow">About</span>
-    <h2 class="title">作っている人</h2>
-    <div class="profile">
-      <div class="bio rv">
-        <div class="bio-top">
-          <img src="links/avatar.jpg" alt="" width="60" height="60" loading="lazy">
-          <div><b>ラムラム</b><span>RAMURAM</span></div>
-        </div>
-        <dl>
-          <dt>BASE</dt><dd>京都市／オンライン全国対応</dd>
-          <dt>BACKGROUND</dt><dd>元銀行員</dd>
-          <dt>SERVICE</dt><dd>ホームページ制作・改修・公開後の更新代行</dd>
-          <dt>CONTACT HOURS</dt><dd>平日 21時まで／土日も返信</dd>
-        </dl>
-      </div>
-      <div class="profile-body rv">
-        <p>もともと銀行で働いていました。数字を見る仕事をしていたので、「このページは誰に何をしてほしいのか」を先に決めてから作ります。見た目だけを整えて終わり、ということはしません。</p>
-        <p>ひとりでやっているので、窓口から制作まで同じ人間が担当します。途中で担当者が変わって話が通じなくなる、ということは起こりません。</p>
-        <p>平日は21時まで、土日も連絡がつきます。「こんなこと聞いていいのかな」という内容でも気にせずどうぞ。</p>
-        <div class="socials">
-          <a class="social" href="https://note.com/cc_fukugyo" target="_blank" rel="noopener">note</a>
-          <a class="social" href="https://x.com/ramuram_web" target="_blank" rel="noopener">X</a>
-          <a class="social" href="https://www.instagram.com/ramuram.cc/" target="_blank" rel="noopener">Instagram</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="sec" id="faq">
-  <div class="wrap">
-    <span class="eyebrow">FAQ</span>
-    <h2 class="title">よくあるご質問</h2>
-    <div class="faq">
-      <details><summary>ホームページを作ったことがありません。何を準備すればいいですか。</summary><div class="a">何もなくて大丈夫です。お店の写真と、伝えたいことを口頭でお話しいただければ、こちらで構成と原稿の下書きを作ります。写真がない場合の進め方もご相談ください。</div></details>
-      <details><summary>すでにあるサイトを作り直すこともできますか。</summary><div class="a">できます。無料ツールで作ったページや、数年前に作ったまま更新が止まっているサイトの作り直しは多いご依頼です。現在のページを拝見したうえで、直すべき点をお伝えします。</div></details>
-      <details><summary>公開したあとの更新はどうなりますか。</summary><div class="a">営業時間やお知らせの変更は、メールかLINEでご連絡いただければ、1〜2営業日で反映します。月額2,000円の保守プラン（文章・写真の差し替え 月3回まで、サーバーの不具合対応を含む）でお受けしています。単発での修正は1回3,000円です。<br><br>ご自身で更新したい場合は、そのための仕組みを入れた作り方もできます。ご相談の際にお申し付けください（費用が変わります）。</div></details>
-      <details><summary>打ち合わせは対面が必要ですか。</summary><div class="a">オンラインのみでも問題ありません。京都市内であれば、ご希望に応じてお店に伺うこともできます。</div></details>
-      <details><summary>キャンペーン価格の枠が埋まったらどうなりますか。</summary><div class="a">通常価格でのご案内になります。残り枠の状況はご相談いただいた時点でお伝えします。</div></details>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
 <section class="cta" id="contact">
-  <div class="wrap">
-    <h2>まずは、今のページを<br>見せていただくところから。</h2>
-    <p>サイトがまだない場合も大丈夫です。ご相談だけで終わっても構いません。</p>
-    <div class="cta-actions">
-      <a class="btn btn-fill" href="mailto:drca.business@gmail.com?subject=%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E5%88%B6%E4%BD%9C%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87&body=%E3%81%8A%E5%BA%97%E3%81%AE%E5%90%8D%E5%89%8D%EF%BC%9A%0D%0A%E6%A5%AD%E7%A8%AE%EF%BC%9A%0D%0A%E3%81%94%E7%9B%B8%E8%AB%87%E5%86%85%E5%AE%B9%EF%BC%9A%0D%0A%0D%0A">メールで相談する</a>
-      <a class="btn btn-ghost" href="https://www.instagram.com/ramuram.cc/" target="_blank" rel="noopener">Instagramで相談する</a>
-    </div>
-    <p class="cta-mail">drca.business@gmail.com ／ 平日21時まで・土日も返信します</p>
+  <span class="en">Contact</span>
+  <h2>まずは、お店の名前を<br>教えてください。</h2>
+  <p>見本を1枚お作りして、お送りします。ご相談だけで終わっても構いません。</p>
+  <div class="acts">
+    <a class="btn btn-fill" href="mailto:drca.business@gmail.com?subject=%E3%83%9B%E3%83%BC%E3%83%A0%E3%83%9A%E3%83%BC%E3%82%B8%E5%88%B6%E4%BD%9C%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87&body=%E3%81%8A%E5%BA%97%E3%81%AE%E5%90%8D%E5%89%8D%EF%BC%9A%0D%0A%E6%A5%AD%E7%A8%AE%EF%BC%9A%0D%0A%E3%81%94%E7%9B%B8%E8%AB%87%E5%86%85%E5%AE%B9%EF%BC%9A%0D%0A%0D%0A">メールで相談する</a>
+    <a class="btn btn-line" href="https://www.instagram.com/ramuram.cc/" target="_blank" rel="noopener">Instagramで相談する</a>
   </div>
+  <p class="mail">drca.business@gmail.com ／ 平日21時まで・土日も返信します</p>
 </section>
 
-<footer>
-  <div class="wrap foot-in">
-    <span>© 2026 ラムラム</span>
-    <span><a href="#works">制作事例</a> ／ <a href="#price">料金</a> ／ <a href="https://note.com/cc_fukugyo" target="_blank" rel="noopener">note</a></span>
-  </div>
-</footer>
+<footer><div class="wrap"><span>© 2026 ラムラム</span><span><a href="#works">制作事例</a> ／ <a href="#price">料金</a> ／ <a href="https://note.com/cc_fukugyo" target="_blank" rel="noopener">note</a></span></div></footer>
 
 <script>
-// ブラウザ風プレビューの中身を枠幅に合わせて縮小する
-function fitShots(){
-  document.querySelectorAll('.shot-view').forEach(function(v){
-    var f=v.querySelector('iframe'); if(!f) return;
-    var s=v.clientWidth/1440;
-    f.style.transform='scale('+s+')';
-    f.style.height=(v.clientHeight/s)+'px';
-  });
-}
-window.addEventListener('load',fitShots);
-window.addEventListener('resize',fitShots);
-fitShots();
-
-// スクロールで現れる
-var io=new IntersectionObserver(function(es){
-  es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
-document.querySelectorAll('.rv').forEach(function(el,i){
-  el.style.transitionDelay=(i%3*70)+'ms';
-  io.observe(el);
-});
+(function(){var els=document.querySelectorAll('.rv');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});els.forEach(function(e){io.observe(e)});})();
 </script>
-
 </body>
 </html>
