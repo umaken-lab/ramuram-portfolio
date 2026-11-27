@@ -20,7 +20,7 @@
   </url>
   <url>
     <loc>https://ramuram.drca-business.workers.dev/guide/</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -51,6 +51,24 @@
   <url>
     <loc>https://ramuram.drca-business.workers.dev/guide/instagram-only/</loc>
     <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ramuram.drca-business.workers.dev/guide/seitai-homepage/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ramuram.drca-business.workers.dev/guide/kaigyo-homepage/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ramuram.drca-business.workers.dev/guide/kyoshitsu-homepage/</loc>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
